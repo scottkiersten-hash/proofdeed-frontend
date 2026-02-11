@@ -1,4 +1,5 @@
-import Home from "../pages/home/index";
+import Home from "../pages/home/page";
+
 import About from "../pages/about/index";
 import FAQ from "../pages/faq/index";
 import HowItWorks from "../pages/how-it-works/index";

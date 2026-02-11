@@ -10,9 +10,13 @@ export default function Auto() {
     file: null as File | null,
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,
@@ -29,24 +33,54 @@ export default function Auto() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
 
     if (!form.vin || !form.buyer || !form.seller || !form.price || !form.state) {
-      alert("Please complete all required fields.");
+      setError("Please complete all required fields.");
       return;
     }
 
-    setSubmitted(true);
+    try {
+      setLoading(true);
 
-    console.log("Auto submission:", form);
+      const formData = new FormData();
+      formData.append("vin", form.vin);
+      formData.append("buyer", form.buyer);
+      formData.append("seller", form.seller);
+      formData.append("price", form.price);
+      formData.append("state", form.state);
+
+      if (form.file) {
+        formData.append("file", form.file);
+      }
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auto`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Submission failed.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
     return (
       <div style={{ padding: "24px" }}>
         <h1>Submission Received</h1>
-        <p>Your Auto Title intake has been recorded.</p>
+        <p>Your Auto Title intake has been successfully submitted.</p>
       </div>
     );
   }
@@ -55,8 +89,14 @@ export default function Auto() {
     <div style={{ padding: "24px", maxWidth: "600px" }}>
       <h1>Auto Title / Dealer Intake</h1>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-        
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+        }}
+      >
         <label>
           VIN *
           <input
@@ -119,16 +159,24 @@ export default function Auto() {
 
         <label>
           Upload Title Document
-          <input
-            type="file"
-            onChange={handleFileChange}
-          />
+          <input type="file" onChange={handleFileChange} />
         </label>
 
-        <button type="submit" style={{ padding: "10px", cursor: "pointer" }}>
-          Submit Auto Title
-        </button>
+        {error && (
+          <div style={{ color: "red", fontSize: "14px" }}>{error}</div>
+        )}
 
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            padding: "10px",
+            cursor: "pointer",
+            opacity: loading ? 0.6 : 1,
+          }}
+        >
+          {loading ? "Submitting..." : "Submit Auto Title"}
+        </button>
       </form>
     </div>
   );

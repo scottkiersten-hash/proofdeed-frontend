@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 export default function Auto() {
   const [form, setForm] = useState({
@@ -12,21 +12,7 @@ export default function Auto() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  // ---------- VIN VALIDATION ----------
-  const vinIsValid = useMemo(() => {
-    const vin = form.vin.trim().toUpperCase();
-    const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/; // No I, O, Q allowed
-    return vinRegex.test(vin);
-  }, [form.vin]);
-
-  const formIsValid =
-    vinIsValid &&
-    form.buyer.trim() &&
-    form.seller.trim() &&
-    form.price.trim() &&
-    form.state.trim();
+  const [submitted, setSubmitted] = useState<string | false>(false);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -47,11 +33,21 @@ export default function Auto() {
     }
   }
 
+  function formIsValid() {
+    return (
+      form.vin.trim() &&
+      form.buyer.trim() &&
+      form.seller.trim() &&
+      form.price.trim() &&
+      form.state.trim()
+    );
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
 
-    if (!formIsValid) {
+    if (!formIsValid()) {
       setError("Please complete all required fields correctly.");
       return;
     }
@@ -78,13 +74,15 @@ export default function Auto() {
         }
       );
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Submission failed.");
+        throw new Error(data.message || "Submission failed.");
       }
 
-      setSubmitted(true);
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
+      setSubmitted(data.referenceId || "Submitted");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -92,9 +90,43 @@ export default function Auto() {
 
   if (submitted) {
     return (
-      <div style={{ padding: "24px" }}>
+      <div style={{ padding: "24px", maxWidth: "600px" }}>
         <h1>Submission Received</h1>
-        <p>Your Auto Title intake has been successfully submitted.</p>
+
+        <div
+          style={{
+            background: "#f4f6f8",
+            padding: "16px",
+            borderRadius: "6px",
+            marginTop: "12px",
+          }}
+        >
+          <p>
+            <strong>Reference ID:</strong> {submitted}
+          </p>
+          <p>Your Auto Title intake has been successfully submitted.</p>
+        </div>
+
+        <button
+          style={{
+            marginTop: "20px",
+            padding: "10px",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            setSubmitted(false);
+            setForm({
+              vin: "",
+              buyer: "",
+              seller: "",
+              price: "",
+              state: "",
+              file: null,
+            });
+          }}
+        >
+          Submit Another
+        </button>
       </div>
     );
   }
@@ -108,7 +140,7 @@ export default function Auto() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "14px",
+          gap: "12px",
         }}
       >
         <label>
@@ -118,18 +150,9 @@ export default function Auto() {
             name="vin"
             value={form.vin}
             onChange={handleChange}
-            maxLength={17}
-            style={{
-              borderColor: form.vin && !vinIsValid ? "red" : "#ccc",
-            }}
+            required
           />
         </label>
-
-        {form.vin && !vinIsValid && (
-          <div style={{ color: "red", fontSize: "13px" }}>
-            VIN must be 17 characters (letters & numbers only, no I, O, Q).
-          </div>
-        )}
 
         <label>
           Buyer Name *
@@ -138,6 +161,7 @@ export default function Auto() {
             name="buyer"
             value={form.buyer}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -148,6 +172,7 @@ export default function Auto() {
             name="seller"
             value={form.seller}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -158,6 +183,7 @@ export default function Auto() {
             name="price"
             value={form.price}
             onChange={handleChange}
+            required
           />
         </label>
 
@@ -167,6 +193,7 @@ export default function Auto() {
             name="state"
             value={form.state}
             onChange={handleChange}
+            required
           >
             <option value="">Select State</option>
             <option value="CA">California</option>
@@ -187,11 +214,11 @@ export default function Auto() {
 
         <button
           type="submit"
-          disabled={loading || !formIsValid}
+          disabled={loading}
           style={{
             padding: "10px",
-            cursor: formIsValid ? "pointer" : "not-allowed",
-            opacity: loading || !formIsValid ? 0.5 : 1,
+            cursor: "pointer",
+            opacity: loading ? 0.6 : 1,
           }}
         >
           {loading ? "Submitting..." : "Submit Auto Title"}

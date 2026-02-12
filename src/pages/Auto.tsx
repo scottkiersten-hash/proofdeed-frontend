@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function Auto() {
   const [form, setForm] = useState({
@@ -13,6 +13,20 @@ export default function Auto() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  // ---------- VIN VALIDATION ----------
+  const vinIsValid = useMemo(() => {
+    const vin = form.vin.trim().toUpperCase();
+    const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/; // No I, O, Q allowed
+    return vinRegex.test(vin);
+  }, [form.vin]);
+
+  const formIsValid =
+    vinIsValid &&
+    form.buyer.trim() &&
+    form.seller.trim() &&
+    form.price.trim() &&
+    form.state.trim();
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -37,8 +51,8 @@ export default function Auto() {
     e.preventDefault();
     setError("");
 
-    if (!form.vin || !form.buyer || !form.seller || !form.price || !form.state) {
-      setError("Please complete all required fields.");
+    if (!formIsValid) {
+      setError("Please complete all required fields correctly.");
       return;
     }
 
@@ -46,7 +60,7 @@ export default function Auto() {
       setLoading(true);
 
       const formData = new FormData();
-      formData.append("vin", form.vin);
+      formData.append("vin", form.vin.toUpperCase());
       formData.append("buyer", form.buyer);
       formData.append("seller", form.seller);
       formData.append("price", form.price);
@@ -94,7 +108,7 @@ export default function Auto() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "12px",
+          gap: "14px",
         }}
       >
         <label>
@@ -104,9 +118,18 @@ export default function Auto() {
             name="vin"
             value={form.vin}
             onChange={handleChange}
-            required
+            maxLength={17}
+            style={{
+              borderColor: form.vin && !vinIsValid ? "red" : "#ccc",
+            }}
           />
         </label>
+
+        {form.vin && !vinIsValid && (
+          <div style={{ color: "red", fontSize: "13px" }}>
+            VIN must be 17 characters (letters & numbers only, no I, O, Q).
+          </div>
+        )}
 
         <label>
           Buyer Name *
@@ -115,7 +138,6 @@ export default function Auto() {
             name="buyer"
             value={form.buyer}
             onChange={handleChange}
-            required
           />
         </label>
 
@@ -126,7 +148,6 @@ export default function Auto() {
             name="seller"
             value={form.seller}
             onChange={handleChange}
-            required
           />
         </label>
 
@@ -137,7 +158,6 @@ export default function Auto() {
             name="price"
             value={form.price}
             onChange={handleChange}
-            required
           />
         </label>
 
@@ -147,7 +167,6 @@ export default function Auto() {
             name="state"
             value={form.state}
             onChange={handleChange}
-            required
           >
             <option value="">Select State</option>
             <option value="CA">California</option>
@@ -168,11 +187,11 @@ export default function Auto() {
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !formIsValid}
           style={{
             padding: "10px",
-            cursor: "pointer",
-            opacity: loading ? 0.6 : 1,
+            cursor: formIsValid ? "pointer" : "not-allowed",
+            opacity: loading || !formIsValid ? 0.5 : 1,
           }}
         >
           {loading ? "Submitting..." : "Submit Auto Title"}

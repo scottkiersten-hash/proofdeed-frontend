@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .btn-transparent {
+    @apply bg-transparent border border-white/60 text-white px-7 py-3.5 min-h-[52px] rounded-lg transition-all whitespace-normal text-center;
+  }
+  
+  .btn-transparent:hover {
+    @apply bg-white/10 border-white; /* Updated opacity class to a valid Tailwind utility */
+  }
+  
+  .btn-primary-orange {
+    @apply bg-[#FF5A1F] text-white px-7 py-3.5 min-h-[52px] rounded-lg transition-all whitespace-normal text-center border-none;
+  }
+  
+  .btn-primary-orange:hover {
+    @apply bg-[#E04810];
+  }
+}

@@ -1,7 +1,24 @@
 const API_BASE_URL = 'https://YOUR-BACKEND-URL.ondigitalocean.app';
 
 /**
- * Generic API POST helper
+ * Endpoint constants
+ */
+export const API_ENDPOINTS = {
+  CORE: {
+    CONTACT: '/api/contact',
+    VALIDATE: '/api/validate',
+  },
+};
+
+/**
+ * Honeypot validation
+ */
+export function validateHoneypot(value: string): boolean {
+  return value === '';
+}
+
+/**
+ * Generic POST helper
  */
 export async function apiPost(endpoint: string, data: FormData | Record<string, unknown>) {
   const isFormData = data instanceof FormData;

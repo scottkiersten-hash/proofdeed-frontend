@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://YOUR-BACKEND-URL.ondigitalocean.app';
+const API_BASE_URL = '';
 
 /**
  * Endpoint constants

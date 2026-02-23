@@ -30,6 +30,18 @@ export const API_ENDPOINTS = {
 };
 
 /**
+ * Standard error messages
+ */
+export const ERROR_MESSAGES = {
+  SUBMISSION_FAILED: 'Submission failed. Please try again.',
+  RATE_LIMIT: 'Too many attempts. Please wait and retry.',
+  INVALID_HONEYPOT: 'Invalid submission detected.',
+  VALIDATION_FAILED: 'Please fill in all required fields.',
+  FILE_TOO_LARGE: 'File size exceeds maximum limit (25MB).',
+  NETWORK_ERROR: 'Network error. Please check your connection.',
+};
+
+/**
  * Honeypot validation
  */
 export function validateHoneypot(value: string): boolean {

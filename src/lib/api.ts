@@ -1,4 +1,4 @@
-const API_BASE_URL = '';
+const API_BASE_URL = 'https://urchin-app-e33ih.ondigitalocean.app';
 
 /**
  * Endpoint constants

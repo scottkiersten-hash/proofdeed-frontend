@@ -4,6 +4,8 @@ export const API_ENDPOINTS = {
   CONTACT: '/api/contact'
 };
 
+/* -------------------- CONTACT -------------------- */
+
 export async function submitContact(data: {
   name: string;
   email: string;
@@ -22,4 +24,12 @@ export async function submitContact(data: {
   }
 
   return response.json();
+}
+
+/* -------------------- HONEYPOT VALIDATION -------------------- */
+
+export function validateHoneypot(value?: string) {
+  if (value && value.trim() !== '') {
+    throw new Error('Spam detected');
+  }
 }

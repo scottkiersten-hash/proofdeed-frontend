@@ -38,7 +38,7 @@ export default function Inquiry() {
     setIsSubmitting(true);
 
     try {
-      const response = await apiPost('/api/contact', {
+     const response = await apiPost('/api/inquiry', {
         name: formData.name,
         email: formData.email,
         message: `

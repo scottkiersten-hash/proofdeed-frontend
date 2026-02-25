@@ -1,19 +1,17 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
-import Header from '@/components/feature/Header';
-import Footer from '@/components/feature/Footer';
-import GovernmentCertificate from '@/components/feature/GovernmentCertificate';
+import { Link } from 'react-router-dom';
+import Header from '../../components/feature/Header';
+import Footer from '../../components/feature/Footer';
+import GovernmentCertificate from '../../components/feature/GovernmentCertificate';
 
 export default function Government() {
   const [showCertificate, setShowCertificate] = useState(false);
 
   return (
-    <>
+    <div className="min-h-screen bg-white">
       <Header />
 
-      <main className="min-h-screen bg-white">
+      <main>
 
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden mt-16">
@@ -49,7 +47,7 @@ export default function Government() {
               </p>
 
               <Link
-                href="/procurement"
+                to="/procurement"
                 className="inline-flex items-center px-6 py-3 text-sm font-semibold rounded-lg"
                 style={{ background: '#FF6B35', color: '#FFFFFF' }}
               >
@@ -77,8 +75,7 @@ export default function Government() {
                 Cryptographic Hashing
               </h3>
               <p className="text-slate-600 text-sm">
-                SHA-256 fingerprint generation ensures tamper-evident
-                proof of record integrity.
+                SHA-256 fingerprint generation ensures tamper-evident proof of record integrity.
               </p>
             </div>
 
@@ -140,6 +137,6 @@ export default function Government() {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

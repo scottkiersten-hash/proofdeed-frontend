@@ -16,10 +16,11 @@ export default function Government() {
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden mt-16">
           <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1585432959449-b1c2f45f1c68?q=80&w=2070&auto=format&fit=crop"
-              alt="Government Record Integrity Infrastructure"
-              className="w-full h-full object-cover object-center"
+           <img
+  src="https://readdy.ai/api/search-image?query=United%20States%20Capitol%20building%20with%20digital%20security%20overlay%20showing%20government%20record%20systems%20and%20public%20integrity%20infrastructure%2C%20professional%20institutional%20technology%20with%20blue%20and%20cyan%20lighting%20effects%2C%20high-tech%20government%20data%20protection%20visualization%20with%20secure%20network%20connections%20and%20fraud%20prevention%20systems%2C%20authoritative%20and%20trustworthy%20aesthetic%2C%20bright%20and%20premium%20quality&width=1920&height=800"
+  alt=""
+  className="w-full h-full object-cover object-center"
+/>
             />
             <div
               className="absolute inset-0"

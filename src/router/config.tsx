@@ -1,4 +1,3 @@
-
 import React from "react";
 import type { RouteObject } from "react-router-dom";
 
@@ -29,6 +28,7 @@ import DocumentCertificate from "../pages/certificate/document/page";
 import AutomotiveCertificate from "../pages/certificate/automotive/page";
 import GovernmentCertificate from "../pages/certificate/government/page";
 import TechnicalProcess from "../pages/technical-process/page";
+import Signup from "../pages/Signup"; // ✅ NEW
 
 const routes: RouteObject[] = [
   { path: "/", element: <Home /> },
@@ -57,7 +57,11 @@ const routes: RouteObject[] = [
   { path: "/certificate/automotive", element: <AutomotiveCertificate /> },
   { path: "/certificate/government", element: <GovernmentCertificate /> },
   { path: "/technical-process", element: <TechnicalProcess /> },
-  // Catch‑all route – must be the last entry
+
+  // ✅ NEW SIGNUP ROUTE
+  { path: "/signup", element: <Signup /> },
+
+  // Catch-all route – must be the last entry
   { path: "*", element: <NotFound /> },
 ];
 

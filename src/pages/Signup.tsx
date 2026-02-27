@@ -13,17 +13,17 @@ export default function Signup() {
       const res = await fetch('/api/checkout-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan })
+        body: JSON.stringify({ plan, vertical })
       });
 
       const data = await res.json();
 
-      if (data.url) {
+      if (res.ok && data.url) {
         window.location.href = data.url;
       } else {
-        alert('Checkout failed');
+        alert(data.error || 'Checkout failed');
       }
-    } catch {
+    } catch (err) {
       alert('Network error');
     }
   };

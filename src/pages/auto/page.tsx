@@ -239,7 +239,7 @@ export default function Auto() {
                 </li>
               </ul>
               <Link
-                to="/signup"
+                to="/signup?vertical=auto&plan=starter"
                 className="block w-full px-5 md:px-7 py-3 md:py-3.5 min-h-[48px] md:min-h-[56px] text-white text-sm md:text-base font-semibold rounded-lg hover:opacity-90 transition-opacity text-center whitespace-normal cursor-pointer"
                 style={{ background: '#2563EB' }}
               >

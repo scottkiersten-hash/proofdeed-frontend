@@ -10,13 +10,17 @@ import Terms from "../pages/terms/page";
 import Verify from "../pages/verify/page";
 import HowItWorks from "../pages/how-it-works/page";
 import FAQ from "../pages/faq/page";
-import Legal from "../pages/legal/page";
-import LegalIntake from "../pages/legal/intake/page";
+
+import Document from "../pages/document/page";
+import DocumentIntake from "../pages/document/intake/page";
+
 import Auto from "../pages/auto/page";
 import AutoIntake from "../pages/auto/intake/page";
+
 import Government from "../pages/government/page";
 import GovernmentUseCases from "../pages/government/use-cases/page";
 import GovernmentSecurity from "../pages/government/security/page";
+
 import Affiliates from "../pages/affiliates/page";
 import Blockchain from "../pages/blockchain/page";
 import Procurement from "../pages/procurement/page";
@@ -24,11 +28,13 @@ import Contact from "../pages/contact/page";
 import Inquiry from "../pages/inquiry/page";
 import TechnicalPackage from "../pages/technical-package/page";
 import RfpFramework from "../pages/rfp-framework/page";
+
 import DocumentCertificate from "../pages/certificate/document/page";
 import AutomotiveCertificate from "../pages/certificate/automotive/page";
 import GovernmentCertificate from "../pages/certificate/government/page";
+
 import TechnicalProcess from "../pages/technical-process/page";
-import Signup from "../pages/Signup"; // ✅ NEW
+import Signup from "../pages/Signup";
 
 const routes: RouteObject[] = [
   { path: "/", element: <Home /> },
@@ -40,28 +46,35 @@ const routes: RouteObject[] = [
   { path: "/how-it-works", element: <HowItWorks /> },
   { path: "/blockchain", element: <Blockchain /> },
   { path: "/faq", element: <FAQ /> },
-  { path: "/legal", element: <Legal /> },
-  { path: "/legal/intake", element: <LegalIntake /> },
+
+  // ✅ DOCUMENT (formerly legal)
+  { path: "/document", element: <Document /> },
+  { path: "/document/intake", element: <DocumentIntake /> },
+
+  // AUTO
   { path: "/auto", element: <Auto /> },
   { path: "/auto/intake", element: <AutoIntake /> },
+
+  // GOVERNMENT
   { path: "/government", element: <Government /> },
   { path: "/government/use-cases", element: <GovernmentUseCases /> },
   { path: "/government/security", element: <GovernmentSecurity /> },
+
   { path: "/affiliates", element: <Affiliates /> },
   { path: "/procurement", element: <Procurement /> },
   { path: "/contact", element: <Contact /> },
   { path: "/inquiry", element: <Inquiry /> },
   { path: "/technical-package", element: <TechnicalPackage /> },
   { path: "/rfp-framework", element: <RfpFramework /> },
+
   { path: "/certificate/document", element: <DocumentCertificate /> },
   { path: "/certificate/automotive", element: <AutomotiveCertificate /> },
   { path: "/certificate/government", element: <GovernmentCertificate /> },
+
   { path: "/technical-process", element: <TechnicalProcess /> },
 
-  // ✅ NEW SIGNUP ROUTE
   { path: "/signup", element: <Signup /> },
 
-  // Catch-all route – must be the last entry
   { path: "*", element: <NotFound /> },
 ];
 

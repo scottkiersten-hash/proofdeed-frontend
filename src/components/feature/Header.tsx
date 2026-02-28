@@ -49,7 +49,7 @@ export default function Header() {
           <nav className="md:hidden py-4 border-t border-slate-800">
             <div className="flex flex-col gap-4">
               <Link 
-                to="/legal" 
+                to="/document" 
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >

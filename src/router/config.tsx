@@ -11,8 +11,8 @@ import Verify from "../pages/verify/page";
 import HowItWorks from "../pages/how-it-works/page";
 import FAQ from "../pages/faq/page";
 
-import Document from "../pages/document/page.tsx";
-import DocumentIntake from "../pages/document/intake/page.tsx";
+import Document from "../pages/document/page";
+import DocumentIntake from "../pages/document/intake/page";
 
 import Auto from "../pages/auto/page";
 import AutoIntake from "../pages/auto/intake/page";

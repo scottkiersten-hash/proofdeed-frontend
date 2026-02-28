@@ -47,15 +47,12 @@ const routes: RouteObject[] = [
   { path: "/blockchain", element: <Blockchain /> },
   { path: "/faq", element: <FAQ /> },
 
-  // DOCUMENT
   { path: "/document", element: <Document /> },
   { path: "/document/intake", element: <DocumentIntake /> },
 
-  // AUTO
   { path: "/auto", element: <Auto /> },
   { path: "/auto/intake", element: <AutoIntake /> },
 
-  // GOVERNMENT
   { path: "/government", element: <Government /> },
   { path: "/government/use-cases", element: <GovernmentUseCases /> },
   { path: "/government/security", element: <GovernmentSecurity /> },

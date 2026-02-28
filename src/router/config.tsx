@@ -69,7 +69,6 @@ const routes: RouteObject[] = [
   { path: "/certificate/government", element: <GovernmentCertificate /> },
 
   { path: "/technical-process", element: <TechnicalProcess /> },
-
   { path: "/signup", element: <Signup /> },
 
   { path: "*", element: <NotFound /> },

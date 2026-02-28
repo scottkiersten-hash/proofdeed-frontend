@@ -15,7 +15,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/document"" className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+            <Link to="/document" className="...">text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap">
               Document Certification
             </Link>
             <Link to="/auto" className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap">

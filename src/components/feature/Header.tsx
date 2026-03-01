@@ -20,7 +20,7 @@ export default function Header() {
               to="/document" 
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap"
             >
-              Regulated Infrastructure
+              Institutional Certification
             </Link>
 
             <Link 
@@ -77,7 +77,7 @@ export default function Header() {
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Regulated Infrastructure
+                Institutional Certification
               </Link>
 
               <Link 

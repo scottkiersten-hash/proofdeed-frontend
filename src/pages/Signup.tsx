@@ -7,13 +7,14 @@ export default function Signup() {
 
   const vertical = searchParams.get('vertical') || 'document';
   const plan = searchParams.get('plan') || 'starter';
+  const billing = searchParams.get('billing') || 'monthly';
 
   const startCheckout = async () => {
     try {
-      const res = await fetch('/api/checkout-intent', {
+      const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, vertical })
+        body: JSON.stringify({ plan, billing, vertical })
       });
 
       const data = await res.json();
@@ -39,8 +40,12 @@ export default function Signup() {
             Start {plan.charAt(0).toUpperCase() + plan.slice(1)} Plan
           </h1>
 
-          <p className="text-slate-600 mb-8">
+          <p className="text-slate-600 mb-2">
             Vertical: <strong>{vertical}</strong>
+          </p>
+
+          <p className="text-slate-600 mb-8">
+            Billing: <strong>{billing}</strong>
           </p>
 
           <button

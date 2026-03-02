@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 
-import governmentImg from '../../../assets/hero/government.jpg';
-import documentImg from '../../../assets/hero/document.jpg';
-import automotiveImg from '../../../assets/hero/automotive.jpg';
-import affiliatesImg from '../../../assets/hero/affiliates.jpg';
+import governmentImg from '../../assets/hero/government.jpg';
+import documentImg from '../../assets/hero/document.jpg';
+import automotiveImg from '../../assets/hero/automotive.jpg';
+import affiliatesImg from '../../assets/hero/affiliates.jpg';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);

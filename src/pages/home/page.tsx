@@ -5,7 +5,7 @@ import Footer from '../../components/feature/Footer';
 
 import governmentImg from '../../assets/hero/government.jpg';
 import documentImg from '../../assets/hero/document.jpg';
-import automotiveImg from '../../assets/hero/automotive.jpg';
+import automotiveImg from '../../assets/hero/auto.jpg';
 import affiliatesImg from '../../assets/hero/affiliates.jpg';
 
 export default function Home() {

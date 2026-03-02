@@ -16,6 +16,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
+
             <Link 
               to="/document" 
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap"
@@ -45,18 +46,12 @@ export default function Header() {
             </Link>
 
             <Link 
-              to="/procurement" 
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Procurement
-            </Link>
-
-            <Link 
               to="/affiliates" 
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors whitespace-nowrap"
             >
               Affiliate Program
             </Link>
+
           </nav>
 
           {/* Mobile Menu Button */}
@@ -72,6 +67,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-slate-800">
             <div className="flex flex-col gap-4">
+
               <Link 
                 to="/document"
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2"
@@ -105,20 +101,13 @@ export default function Header() {
               </Link>
 
               <Link 
-                to="/procurement"
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Procurement
-              </Link>
-
-              <Link 
                 to="/affiliates"
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Affiliate Program
               </Link>
+
             </div>
           </nav>
         )}

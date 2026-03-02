@@ -32,11 +32,11 @@ export default function InstitutionalCertification() {
             <div className="flex flex-wrap items-center gap-4">
 
               <Link
-                to="/document/intake"
+                to="/signup?vertical=document"
                 className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg transition-opacity hover:opacity-90"
                 style={{ background: '#2563EB', color: '#FFFFFF' }}
               >
-                Register Integrity Certificate
+                View Certification Plans
               </Link>
 
               <Link

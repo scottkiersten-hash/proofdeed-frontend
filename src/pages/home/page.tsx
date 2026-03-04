@@ -47,13 +47,13 @@ export default function Home() {
             cta="Access Government Solutions"
           />
 
-          <HeroPanel
-            to="/document"
-            image={documentImg}
-            title="Document Certification"
-            desc="Secure certification for banking, finance, legal and real estate."
-            cta="View Certification Plans"
-          />
+         <HeroPanel
+  to="/document"
+  image={documentImg}
+  title="Institutional Certification"
+  desc="Secure certification for banking, finance, legal and real estate."
+  cta="View Certification Plans"
+/>
 
           <HeroPanel
             to="/auto"

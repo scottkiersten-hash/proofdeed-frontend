@@ -36,7 +36,7 @@ export default function Legal() {
             
             <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap items-center gap-4">
               <Link
-                to="/legal/intake"
+                to="/document/intake"
                 className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
                 style={{ background: '#FF6B35', color: '#FFFFFF' }}
               >

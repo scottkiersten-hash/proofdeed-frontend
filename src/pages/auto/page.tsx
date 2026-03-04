@@ -36,13 +36,13 @@ export default function Auto() {
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap items-center gap-4">
-              <Link
-                to="/auto/intake"
-                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
-                style={{ background: '#FF6B35', color: '#FFFFFF' }}
-              >
-                Certify Vehicle Record
-              </Link>
+             <Link
+  to="/signup?vertical=auto"
+  className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
+  style={{ background: '#FF6B35', color: '#FFFFFF' }}
+>
+  Start Vehicle Certification
+</Link>
               <Link
                 to="/verify"
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-semibold rounded-lg hover:bg-[#2563EB] hover:border-[#2563EB] transition-colors whitespace-nowrap cursor-pointer"

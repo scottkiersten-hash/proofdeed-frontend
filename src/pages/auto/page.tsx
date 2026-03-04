@@ -36,13 +36,17 @@ export default function Auto() {
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap items-center gap-4">
-             <Link
-  to="/signup?vertical=auto"
-  className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
-  style={{ background: '#FF6B35', color: '#FFFFFF' }}
->
-  Start Vehicle Certification
-</Link>
+              <Link
+                to="#pricing"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
+                style={{ background: '#FF6B35', color: '#FFFFFF' }}
+              >
+                Start Vehicle Certification
+              </Link>
               <Link
                 to="/verify"
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-transparent border-2 border-white/80 text-white text-sm font-semibold rounded-lg hover:bg-[#2563EB] hover:border-[#2563EB] transition-colors whitespace-nowrap cursor-pointer"
@@ -199,7 +203,7 @@ export default function Auto() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 md:py-20 bg-slate-50">
+      <section id="pricing" className="py-16 md:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -223,7 +227,7 @@ export default function Auto() {
               <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 <li className="flex items-start gap-3">
                   <i className="ri-check-line text-slate-700 text-lg md:text-xl mt-0.5"></i>
-                  <span className="text-slate-600 text-sm md:text-base">25 certifications/month</span>
+                  <span className="text-slate-600 text-sm md:text-base">70 certifications/month</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <i className="ri-check-line text-slate-700 text-lg md:text-xl mt-0.5"></i>

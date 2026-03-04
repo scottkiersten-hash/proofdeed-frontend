@@ -11,10 +11,19 @@ export default function Signup() {
 
   const startCheckout = async () => {
     try {
+
       const res = await fetch('/api/checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, billing, vertical })
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          plan,
+          billing,
+          vertical,
+          successUrl: window.location.origin + '/success',
+          cancelUrl: window.location.origin + '/' + vertical + '#pricing'
+        })
       });
 
       const data = await res.json();
@@ -24,7 +33,9 @@ export default function Signup() {
       } else {
         alert(data.error || 'Checkout failed');
       }
+
     } catch (err) {
+      console.error(err);
       alert('Network error');
     }
   };

@@ -6,7 +6,11 @@ export default function Signup() {
   const [searchParams] = useSearchParams();
 
   const vertical = searchParams.get('vertical') || 'document';
-  const plan = searchParams.get('plan') || 'starter';
+let plan = searchParams.get('plan') || 'starter';
+
+if (plan === 'pro') {
+  plan = 'professional';
+}
   const billing = searchParams.get('billing') || 'monthly';
 
   const startCheckout = async () => {

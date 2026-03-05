@@ -97,7 +97,7 @@ function HeroPanel({
   title: string;
   desc: string;
   cta: string;
-}) {
+})
 
   return (
     <Link to={to} className="relative group overflow-hidden">

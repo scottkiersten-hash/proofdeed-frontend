@@ -85,7 +85,7 @@ export default function Home() {
   );
 }
 
-function HeroPanel({
+function HeroPanel({ to, image, title, desc, cta }) {
   to,
   image,
   title,

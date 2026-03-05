@@ -151,7 +151,7 @@ export default function Institutional() {
               </div>
 
               <ul className="text-slate-600 mb-8 space-y-2">
-                <li>✓ 70 certifications / month</li>
+                <li>✓ 25 certifications / month</li>
                 <li>✓ 25MB per file</li>
                 <li>✓ Single user</li>
                 <li>✓ Dashboard access</li>

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 
 export default function Institutional() {
+
+  const [billing, setBilling] = useState('monthly');
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -44,7 +48,6 @@ export default function Institutional() {
 
             <div className="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap items-center gap-4">
 
-              {/* Scroll to pricing */}
               <a
                 href="#pricing"
                 className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-lg whitespace-nowrap cursor-pointer transition-opacity hover:opacity-90"
@@ -127,27 +130,77 @@ export default function Institutional() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-slate-50">
+
         <div className="max-w-7xl mx-auto px-6">
 
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
               Certification Plans
             </h2>
 
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Subscription access to the ProofDeed certification platform
+              Choose monthly billing or save with annual pricing
             </p>
+          </div>
+
+          {/* Billing Toggle */}
+
+          <div className="flex justify-center mb-12">
+
+            <div className="bg-white border border-slate-200 rounded-lg p-1 flex">
+
+              <button
+                onClick={() => setBilling('monthly')}
+                className={`px-6 py-2 rounded-md text-sm font-semibold ${
+                  billing === 'monthly'
+                    ? 'bg-[#2563EB] text-white'
+                    : 'text-slate-600'
+                }`}
+              >
+                Monthly
+              </button>
+
+              <button
+                onClick={() => setBilling('annual')}
+                className={`px-6 py-2 rounded-md text-sm font-semibold ${
+                  billing === 'annual'
+                    ? 'bg-[#2563EB] text-white'
+                    : 'text-slate-600'
+                }`}
+              >
+                Annual (Save 20%)
+              </button>
+
+            </div>
+
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
 
             {/* Starter */}
+
             <div className="bg-white border border-slate-200 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Starter</h3>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Starter
+              </h3>
 
               <div className="mb-6">
-                <span className="text-4xl font-bold text-slate-900">$19</span>
-                <span className="text-slate-600 ml-2">per month</span>
+
+                {billing === 'monthly' && (
+                  <>
+                    <span className="text-4xl font-bold text-slate-900">$19</span>
+                    <span className="text-slate-600 ml-2">per month</span>
+                  </>
+                )}
+
+                {billing === 'annual' && (
+                  <>
+                    <span className="text-4xl font-bold text-slate-900">$190</span>
+                    <span className="text-slate-600 ml-2">per year</span>
+                  </>
+                )}
+
               </div>
 
               <ul className="text-slate-600 mb-8 space-y-2">
@@ -158,21 +211,39 @@ export default function Institutional() {
               </ul>
 
               <Link
-                to="/signup?vertical=document&plan=starter"
+                to={`/signup?vertical=document&plan=starter&billing=${billing}`}
                 className="block w-full px-7 py-3.5 text-white text-base font-semibold rounded-lg text-center"
                 style={{ background: '#2563EB' }}
               >
                 Start Starter Plan
               </Link>
+
             </div>
 
             {/* Professional */}
+
             <div className="bg-white border-2 border-[#2563EB] rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Professional</h3>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Professional
+              </h3>
 
               <div className="mb-6">
-                <span className="text-4xl font-bold text-slate-900">$39</span>
-                <span className="text-slate-600 ml-2">per month</span>
+
+                {billing === 'monthly' && (
+                  <>
+                    <span className="text-4xl font-bold text-slate-900">$39</span>
+                    <span className="text-slate-600 ml-2">per month</span>
+                  </>
+                )}
+
+                {billing === 'annual' && (
+                  <>
+                    <span className="text-4xl font-bold text-slate-900">$390</span>
+                    <span className="text-slate-600 ml-2">per year</span>
+                  </>
+                )}
+
               </div>
 
               <ul className="text-slate-600 mb-8 space-y-2">
@@ -183,20 +254,27 @@ export default function Institutional() {
               </ul>
 
               <Link
-                to="/signup?vertical=document&plan=professional"
+                to={`/signup?vertical=document&plan=professional&billing=${billing}`}
                 className="block w-full px-7 py-3.5 text-white text-base font-semibold rounded-lg text-center"
                 style={{ background: '#FF6B35' }}
               >
                 Start Professional Plan
               </Link>
+
             </div>
 
             {/* Institutional */}
+
             <div className="bg-white border border-slate-200 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Institutional</h3>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Institutional
+              </h3>
 
               <div className="mb-6">
-                <span className="text-4xl font-bold text-slate-900">Custom</span>
+                <span className="text-4xl font-bold text-slate-900">
+                  Custom
+                </span>
               </div>
 
               <ul className="text-slate-600 mb-8 space-y-2">
@@ -213,13 +291,17 @@ export default function Institutional() {
               >
                 Request Institutional Pricing
               </Link>
+
             </div>
 
           </div>
+
         </div>
+
       </section>
 
       <Footer />
+
     </div>
   );
 }

@@ -1,124 +1,131 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import Header from '../../components/feature/Header';
+import Footer from '../../components/feature/Footer';
 
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+import governmentImg from '../../assets/hero/government.jpg';
+import documentImg from '../../assets/hero/document.jpg';
+import autoImg from '../../assets/hero/auto.jpg';
+import affiliatesImg from '../../assets/hero/affiliates.jpg';
+
+export default function Home() {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-6">
+    <div
+      className="min-h-screen overflow-x-hidden"
+      style={{ background: 'linear-gradient(180deg, #0B1220 0%, #0E1A2F 100%)' }}
+    >
+      <Header />
 
-        {/* HEADER ROW */}
-        <div className="flex items-center justify-between h-12">
+      {/* HERO */}
+      <section className="relative pt-10 md:pt-12 pb-4">
 
-          {/* Logo */}
-          <Link
-            to="/"
-            className="font-semibold text-base tracking-wider text-[#EAF2FF]"
-          >
+        <div className="max-w-5xl mx-auto px-6 pt-6 pb-6 text-center">
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-[#EAF2FF]">
             PROOFDEED
-          </Link>
+          </h1>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-
-            <Link
-              to="/document"
-              className="text-sm text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Institutional Certification
-            </Link>
-
-            <Link
-              to="/auto"
-              className="text-sm text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Automotive Certification
-            </Link>
-
-            <Link
-              to="/government"
-              className="text-sm text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Government Certification
-            </Link>
-
-            <Link
-              to="/verify"
-              className="text-sm text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Verify Certificate
-            </Link>
-
-            <Link
-              to="/affiliates"
-              className="text-sm text-slate-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              Affiliate Program
-            </Link>
-
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-8 h-8 flex items-center justify-center text-white"
-          >
-            <i className={`${mobileMenuOpen ? 'ri-close-line' : 'ri-menu-line'} text-xl`}></i>
-          </button>
+          <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Verifiable Digital Certification for Government Records, Real Estate Transactions,
+            Legal & Title Workflows, Notarization Services, and Vehicle Transfers.
+          </p>
 
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-3 border-t border-slate-800">
-            <div className="flex flex-col gap-3">
+        {/* PANELS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 min-h-[55vh]">
 
-              <Link
-                to="/document"
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Institutional Certification
-              </Link>
+          <HeroPanel
+            to="/government"
+            image={governmentImg}
+            title="Government Certification"
+            desc="Fraud prevention and public record integrity systems."
+            cta="Access Government Solutions"
+          />
 
-              <Link
-                to="/auto"
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Automotive Certification
-              </Link>
+          <HeroPanel
+            to="/document"
+            image={documentImg}
+            title="Institutional Certification"
+            desc="Secure certification for banking, finance, legal and real estate."
+            cta="View Certification Plans"
+          />
 
-              <Link
-                to="/government"
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Government Certification
-              </Link>
+          <HeroPanel
+            to="/auto"
+            image={autoImg}
+            title="Automotive Certification"
+            desc="VIN validation, title authentication, dealer integrity."
+            cta="Explore Automotive Solutions"
+          />
 
-              <Link
-                to="/verify"
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Verify Certificate
-              </Link>
+          <HeroPanel
+            to="/affiliates"
+            image={affiliatesImg}
+            title="Affiliates"
+            desc="Revenue partnerships and API integration programs."
+            cta="Become a Partner"
+          />
 
-              <Link
-                to="/affiliates"
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Affiliate Program
-              </Link>
+        </div>
 
-            </div>
-          </nav>
-        )}
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+
+function HeroPanel({
+  to,
+  image,
+  title,
+  desc,
+  cta,
+}: {
+  to: string;
+  image: string;
+  title: string;
+  desc: string;
+  cta: string;
+}) {
+
+  return (
+    <Link to={to} className="relative group overflow-hidden">
+
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+
+      <div className="relative h-full flex flex-col justify-end p-8 text-center">
+
+        <h3 className="text-2xl font-bold text-white mb-3">
+          {title}
+        </h3>
+
+        <p className="text-slate-200 mb-6">
+          {desc}
+        </p>
+
+        <div className="border border-white/60 py-3 rounded-lg text-white font-semibold group-hover:bg-white group-hover:text-black transition-all">
+          {cta}
+        </div>
 
       </div>
-    </header>
+
+    </Link>
   );
 }

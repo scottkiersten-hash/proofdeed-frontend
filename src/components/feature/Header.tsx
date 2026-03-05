@@ -86,18 +86,6 @@ export default function Home() {
 }
 
 function HeroPanel({ to, image, title, desc, cta }) {
-  to,
-  image,
-  title,
-  desc,
-  cta,
-}: {
-  to: string;
-  image: string;
-  title: string;
-  desc: string;
-  cta: string;
-})
 
   return (
     <Link to={to} className="relative group overflow-hidden">

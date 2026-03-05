@@ -9,6 +9,7 @@ import autoImg from '../../assets/hero/auto.jpg';
 import affiliatesImg from '../../assets/hero/affiliates.jpg'; 
 
 export default function Home() {
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,19 +26,23 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="relative min-h-screen pt-20 md:pt-24">
-        <div className="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#EAF2FF]">
+      <section className="relative pt-16 md:pt-20 pb-8">
+
+        <div className="max-w-5xl mx-auto px-6 pt-10 pb-8 text-center">
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#EAF2FF]">
             PROOFDEED
           </h1>
-          <p className="text-lg md:text-2xl text-slate-300 max-w-4xl mx-auto">
+
+          <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Verifiable Digital Certification for Government Records, Real Estate Transactions,
             Legal & Title Workflows, Notarization Services, and Vehicle Transfers.
           </p>
+
         </div>
 
         {/* PANELS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 min-h-[65vh]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 min-h-[55vh]">
 
           <HeroPanel
             to="/government"
@@ -47,13 +52,13 @@ export default function Home() {
             cta="Access Government Solutions"
           />
 
-         <HeroPanel
-  to="/document"
-  image={documentImg}
-  title="Institutional Certification"
-  desc="Secure certification for banking, finance, legal and real estate."
-  cta="View Certification Plans"
-/>
+          <HeroPanel
+            to="/document"
+            image={documentImg}
+            title="Institutional Certification"
+            desc="Secure certification for banking, finance, legal and real estate."
+            cta="View Certification Plans"
+          />
 
           <HeroPanel
             to="/auto"
@@ -70,10 +75,13 @@ export default function Home() {
             desc="Revenue partnerships and API integration programs."
             cta="Become a Partner"
           />
+
         </div>
+
       </section>
 
       <Footer />
+
     </div>
   );
 }
@@ -92,20 +100,37 @@ function HeroPanel({
   cta: string;
 }) {
   return (
-    <Link to={to} className="relative group overflow-hidden">
+
+    <Link
+      to={to}
+      className="relative group overflow-hidden"
+    >
+
       <img
         src={image}
         alt={title}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+
       <div className="relative h-full flex flex-col justify-end p-8 text-center">
-        <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-slate-200 mb-6">{desc}</p>
-        <div className="border border-white/60 py-3 rounded-lg text-white font-semibold">
+
+        <h3 className="text-2xl font-bold text-white mb-3">
+          {title}
+        </h3>
+
+        <p className="text-slate-200 mb-6">
+          {desc}
+        </p>
+
+        <div className="border border-white/60 py-3 rounded-lg text-white font-semibold group-hover:bg-white group-hover:text-black transition-all">
           {cta}
         </div>
+
       </div>
+
     </Link>
+
   );
 }

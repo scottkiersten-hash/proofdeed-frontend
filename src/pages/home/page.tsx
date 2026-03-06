@@ -6,7 +6,7 @@ import Footer from '../../components/feature/Footer';
 import governmentImg from '../../assets/hero/government.jpg';
 import documentImg from '../../assets/hero/document.jpg';
 import autoImg from '../../assets/hero/auto.jpg';
-import affiliatesImg from '../../assets/hero/affiliates.jpg'; 
+import affiliatesImg from '../../assets/hero/affiliates.jpg';
 
 export default function Home() {
 
@@ -89,8 +89,8 @@ export default function Home() {
 
         </div>
 
-        {/* PANELS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 min-h-[55vh]">
+        {/* INDUSTRY PANELS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-h-[55vh]">
 
           <HeroPanel
             to="/government"
@@ -116,13 +116,31 @@ export default function Home() {
             cta="Explore Automotive Solutions"
           />
 
-          <HeroPanel
+        </div>
+
+      </section>
+
+      {/* AFFILIATE SECTION */}
+      <section className="py-20 bg-[#0E1A2F]">
+
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Partner With ProofDeed
+          </h2>
+
+          <p className="text-slate-300 max-w-3xl mx-auto mb-10">
+            Join the ProofDeed affiliate program and earn revenue by introducing
+            organizations that require certified digital documentation and
+            verification infrastructure.
+          </p>
+
+          <Link
             to="/affiliates"
-            image={affiliatesImg}
-            title="Affiliates"
-            desc="Revenue partnerships and API integration programs."
-            cta="Become a Partner"
-          />
+            className="inline-block bg-white text-black font-semibold px-8 py-4 rounded-lg hover:bg-slate-200 transition"
+          >
+            Become a Partner
+          </Link>
 
         </div>
 

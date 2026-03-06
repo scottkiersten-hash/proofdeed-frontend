@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900 border-b border-slate-800">
@@ -16,56 +17,67 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 text-sm">
 
-            <Link
-              to="/document"
-              className="text-sm text-slate-300 hover:text-white"
+            {/* Industries Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIndustriesOpen(true)}
+              onMouseLeave={() => setIndustriesOpen(false)}
             >
-              Institutional Certification
-            </Link>
 
-            <Link
-              to="/auto"
-              className="text-sm text-slate-300 hover:text-white"
-            >
-              Automotive Certification
-            </Link>
+              <button className="text-slate-300 hover:text-white">
+                Industries
+              </button>
 
-            <Link
-              to="/government"
-              className="text-sm text-slate-300 hover:text-white"
-            >
-              Government Certification
-            </Link>
+              {industriesOpen && (
+                <div className="absolute top-6 left-0 bg-slate-800 border border-slate-700 rounded-md shadow-lg w-60">
+
+                  <Link
+                    to="/document"
+                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  >
+                    Institutional Certification
+                  </Link>
+
+                  <Link
+                    to="/auto"
+                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  >
+                    Automotive Certification
+                  </Link>
+
+                  <Link
+                    to="/government"
+                    className="block px-4 py-3 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  >
+                    Government Certification
+                  </Link>
+
+                </div>
+              )}
+
+            </div>
 
             <Link
               to="/verify"
-              className="text-sm text-slate-300 hover:text-white"
+              className="text-slate-300 hover:text-white"
             >
               Verify Certificate
             </Link>
 
             <Link
               to="/affiliates"
-              className="text-sm text-slate-300 hover:text-white"
+              className="text-slate-300 hover:text-white"
             >
               Affiliate Program
             </Link>
 
-            {/* AUTH BUTTONS */}
             <Link
               to="/login"
-              className="text-sm text-slate-300 hover:text-white"
+              className="text-slate-300 hover:text-white"
             >
               Login
-            </Link>
-
-            <Link
-              to="/signup"
-              className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded"
-            >
-              Sign Up
             </Link>
 
           </nav>
@@ -82,17 +94,15 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-800 flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-slate-800 flex flex-col gap-4 text-sm text-white">
 
             <Link to="/document">Institutional Certification</Link>
             <Link to="/auto">Automotive Certification</Link>
             <Link to="/government">Government Certification</Link>
+
             <Link to="/verify">Verify Certificate</Link>
             <Link to="/affiliates">Affiliate Program</Link>
-
-            {/* MOBILE AUTH */}
             <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
 
           </div>
         )}

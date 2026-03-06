@@ -53,6 +53,21 @@ export default function Header() {
               Affiliate Program
             </Link>
 
+            {/* AUTH BUTTONS */}
+            <Link
+              to="/login"
+              className="text-sm text-slate-300 hover:text-white"
+            >
+              Login
+            </Link>
+
+            <Link
+              to="/signup"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded"
+            >
+              Sign Up
+            </Link>
+
           </nav>
 
           {/* Mobile Menu Button */}
@@ -74,6 +89,10 @@ export default function Header() {
             <Link to="/government">Government Certification</Link>
             <Link to="/verify">Verify Certificate</Link>
             <Link to="/affiliates">Affiliate Program</Link>
+
+            {/* MOBILE AUTH */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
 
           </div>
         )}

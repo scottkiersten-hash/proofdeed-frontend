@@ -23,12 +23,14 @@ export default function Home() {
       className="min-h-screen overflow-x-hidden"
       style={{ background: 'linear-gradient(180deg, #0B1220 0%, #0E1A2F 100%)' }}
     >
+
       <Header />
 
       {/* HERO */}
-      <section className="relative pt-16 md:pt-20 pb-8">
 
-        <div className="max-w-5xl mx-auto px-6 pt-10 pb-8 text-center">
+      <section className="relative pt-16 md:pt-20 pb-12">
+
+        <div className="max-w-5xl mx-auto px-6 pt-10 pb-10 text-center">
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#EAF2FF]">
             PROOFDEED
@@ -41,55 +43,62 @@ export default function Home() {
 
         </div>
 
-        {/* STORY SECTION */}
-        <div className="max-w-4xl mx-auto px-6 pb-14 text-center">
+      </section>
 
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-            Independent Certification Infrastructure
+
+      {/* HOW IT WORKS */}
+
+      <section className="py-16">
+
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            How It Works
           </h2>
 
-          <p className="text-slate-300 leading-relaxed mb-10">
-            ProofDeed creates tamper-evident certification for critical records.
-            Each certification generates a cryptographic fingerprint anchored to an
-            immutable timestamp, allowing anyone to independently verify authenticity
-            without storing the original document.
+          <p className="text-slate-300 mb-12">
+            Independent certification infrastructure without document storage
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-slate-300">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-slate-300">
 
-            <div className="border border-white/10 rounded-lg p-4">
-              Document
-              <div className="text-xs text-slate-400 mt-2">
-                Original record submitted
-              </div>
+            <div className="border border-white/10 rounded-lg p-6 w-56">
+              <div className="text-white font-semibold mb-1">Document</div>
+              <div className="text-sm text-slate-400">Original record submitted</div>
             </div>
 
-            <div className="border border-white/10 rounded-lg p-4">
-              SHA-256 Hash
-              <div className="text-xs text-slate-400 mt-2">
-                Cryptographic fingerprint
-              </div>
+            <div className="text-2xl text-slate-500">→</div>
+
+            <div className="border border-white/10 rounded-lg p-6 w-56">
+              <div className="text-white font-semibold mb-1">SHA-256 Hash</div>
+              <div className="text-sm text-slate-400">Cryptographic fingerprint</div>
             </div>
 
-            <div className="border border-white/10 rounded-lg p-4">
-              Blockchain Anchor
-              <div className="text-xs text-slate-400 mt-2">
-                Immutable timestamp
-              </div>
+            <div className="text-2xl text-slate-500">→</div>
+
+            <div className="border border-white/10 rounded-lg p-6 w-56">
+              <div className="text-white font-semibold mb-1">Blockchain Anchor</div>
+              <div className="text-sm text-slate-400">Immutable timestamp</div>
             </div>
 
-            <div className="border border-white/10 rounded-lg p-4">
-              ProofDeed Certificate
-              <div className="text-xs text-slate-400 mt-2">
-                Public verification
-              </div>
+            <div className="text-2xl text-slate-500">→</div>
+
+            <div className="border border-white/10 rounded-lg p-6 w-56">
+              <div className="text-white font-semibold mb-1">ProofDeed Certificate</div>
+              <div className="text-sm text-slate-400">Public verification</div>
             </div>
 
           </div>
 
         </div>
 
-        {/* INDUSTRY PANELS */}
+      </section>
+
+
+      {/* INDUSTRY PANELS */}
+
+      <section className="pb-16">
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-h-[55vh]">
 
           <HeroPanel
@@ -120,19 +129,20 @@ export default function Home() {
 
       </section>
 
+
       {/* AFFILIATE SECTION */}
+
       <section className="py-20 bg-[#0E1A2F]">
 
         <div className="max-w-6xl mx-auto px-6 text-center">
 
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Partner With ProofDeed
+            Affiliate Program
           </h2>
 
           <p className="text-slate-300 max-w-3xl mx-auto mb-10">
-            Join the ProofDeed affiliate program and earn revenue by introducing
-            organizations that require certified digital documentation and
-            verification infrastructure.
+            Revenue partnerships and API integration programs for organizations
+            introducing ProofDeed certification infrastructure.
           </p>
 
           <Link
@@ -146,25 +156,16 @@ export default function Home() {
 
       </section>
 
+
       <Footer />
 
     </div>
   );
 }
 
-function HeroPanel({
-  to,
-  image,
-  title,
-  desc,
-  cta,
-}: {
-  to: string;
-  image: string;
-  title: string;
-  desc: string;
-  cta: string;
-}) {
+
+function HeroPanel({ to, image, title, desc, cta }) {
+
   return (
 
     <Link

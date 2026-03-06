@@ -46,19 +46,33 @@ export default function Home() {
       </section>
 
 
+      {/* STORY PARAGRAPH */}
+
+      <section className="pb-8">
+
+        <div className="max-w-4xl mx-auto px-6 text-center">
+
+          <p className="text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12">
+            ProofDeed creates tamper-evident certification for critical records.
+            Each certification generates a cryptographic fingerprint anchored to
+            an immutable timestamp, allowing anyone to independently verify
+            authenticity without storing the original document.
+          </p>
+
+        </div>
+
+      </section>
+
+
       {/* HOW IT WORKS */}
 
-      <section className="py-16">
+      <section className="pb-16">
 
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
             How It Works
           </h2>
-
-          <p className="text-slate-300 mb-12">
-            Independent certification infrastructure without document storage
-          </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-slate-300">
 

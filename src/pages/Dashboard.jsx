@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 
-interface Certification {
-  certification_id: string;
-  timestamp: string;
-  hash: string;
-}
-
 export default function Dashboard() {
-  const [certifications, setCertifications] = useState<Certification[]>([]);
+
+  const [certifications, setCertifications] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -77,6 +72,7 @@ export default function Dashboard() {
                 <a
                   href={`${import.meta.env.VITE_API_URL}/api/certificate/${cert.certification_id}`}
                   target="_blank"
+                  rel="noreferrer"
                   className="text-blue-600 hover:underline"
                 >
                   View

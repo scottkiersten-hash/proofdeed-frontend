@@ -59,16 +59,49 @@ export default function Document() {
             with tamper-proof cryptographic certification and independent verification.
           </p>
 
-          <div className="mt-12 grid grid-cols-2 gap-8 text-sm text-slate-700">
+          <div className="mt-12 grid grid-cols-2 gap-8 text-sm">
 
-            <div>Law Firms</div>
-            <div>Title & Escrow</div>
+            <div>
+              <div className="font-medium text-slate-900">Law Firms</div>
+              <p className="text-slate-600 mt-1">
+                Secure contracts, filings, and evidentiary records with independent timestamp certification.
+              </p>
+            </div>
 
-            <div>Mortgage & Lending</div>
-            <div>Private Agreements</div>
+            <div>
+              <div className="font-medium text-slate-900">Title & Escrow</div>
+              <p className="text-slate-600 mt-1">
+                Protect title documents, closing statements, and escrow records from tampering.
+              </p>
+            </div>
 
-            <div>Homeowners</div>
-            <div>Institutional Records</div>
+            <div>
+              <div className="font-medium text-slate-900">Mortgage & Lending</div>
+              <p className="text-slate-600 mt-1">
+                Certify loan documents, disclosures, and underwriting records.
+              </p>
+            </div>
+
+            <div>
+              <div className="font-medium text-slate-900">Private Agreements</div>
+              <p className="text-slate-600 mt-1">
+                Provide independent verification for private contracts and agreements.
+              </p>
+            </div>
+
+            <div>
+              <div className="font-medium text-slate-900">Homeowners</div>
+              <p className="text-slate-600 mt-1">
+                Protect property records, renovation contracts, and ownership documents.
+              </p>
+            </div>
+
+            <div>
+              <div className="font-medium text-slate-900">Institutional Records</div>
+              <p className="text-slate-600 mt-1">
+                Maintain long-term certified archives for institutional documentation.
+              </p>
+            </div>
 
           </div>
 

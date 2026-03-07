@@ -7,12 +7,19 @@ export default function Home() {
 
   const [index, setIndex] = useState(0);
 
+  const scrollLeft = () => {
+    const el = document.getElementById("industry-scroll");
+    if (!el) return;
+
+    el.scrollBy({ left: -620, behavior: "smooth" });
+    setIndex((prev) => (prev === 0 ? 2 : prev - 1));
+  };
+
   const scrollRight = () => {
     const el = document.getElementById("industry-scroll");
     if (!el) return;
 
-    el.scrollBy({ left: 640, behavior: "smooth" });
-
+    el.scrollBy({ left: 620, behavior: "smooth" });
     setIndex((prev) => (prev + 1) % 3);
   };
 
@@ -25,7 +32,7 @@ export default function Home() {
 
       {/* HERO */}
 
-      <section className="pt-20 pb-16">
+      <section className="pt-20 pb-10">
 
         <div className="max-w-5xl mx-auto px-6 text-center">
 
@@ -34,9 +41,27 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Verifiable Digital Certification for Government Records,
-            Real Estate Transactions, Legal & Title Workflows,
-            Notarization Services, and Vehicle Transfers.
+            Verifiable Digital Certification for Government Records, Real Estate
+            Transactions, Legal & Title Workflows, Notarization Services, and
+            Vehicle Transfers.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      {/* RESTORED DESCRIPTION LINE */}
+
+      <section className="pb-10">
+
+        <div className="max-w-4xl mx-auto px-6 text-center">
+
+          <p className="text-slate-600 leading-relaxed">
+            ProofDeed creates tamper-evident certification for critical records.
+            Each certification generates a cryptographic fingerprint anchored
+            to an immutable timestamp allowing anyone to independently verify
+            authenticity without storing the original document.
           </p>
 
         </div>
@@ -71,17 +96,27 @@ export default function Home() {
       </section>
 
 
-      {/* TESLA STYLE INDUSTRY SLIDER */}
+      {/* TESLA STYLE INDUSTRY CAROUSEL */}
 
       <section className="pb-28">
 
         <div className="relative max-w-7xl mx-auto px-6">
 
+          {/* LEFT ARROW */}
+
+          <button
+            onClick={scrollLeft}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow rounded-lg w-10 h-10 flex items-center justify-center"
+          >
+            ‹
+          </button>
+
+
           {/* RIGHT ARROW */}
 
           <button
             onClick={scrollRight}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur shadow-lg rounded-lg w-12 h-12 flex items-center justify-center"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow rounded-lg w-10 h-10 flex items-center justify-center"
           >
             ›
           </button>
@@ -89,13 +124,13 @@ export default function Home() {
 
           <div
             id="industry-scroll"
-            className="flex gap-8 overflow-x-auto scroll-smooth pb-6"
+            className="flex gap-8 overflow-x-hidden scroll-smooth"
           >
 
             <IndustryCard
               title="Government"
               desc="Public record integrity and fraud prevention infrastructure."
-              image="https://images.unsplash.com/photo-1575320181282-9afab399332c"
+              image="https://images.unsplash.com/photo-1585241936939-be4099591252"
               link="/government"
             />
 
@@ -109,14 +144,14 @@ export default function Home() {
             <IndustryCard
               title="Automotive"
               desc="VIN verification and dealer title authentication."
-              image="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+              image="https://images.unsplash.com/photo-1542362567-b07e54358753"
               link="/auto"
             />
 
           </div>
 
 
-          {/* DOT NAVIGATION */}
+          {/* DOTS */}
 
           <div className="flex justify-center gap-2 mt-6">
 
@@ -172,12 +207,7 @@ export default function Home() {
 
 
 
-type StepProps = {
-  title: string;
-  desc: string;
-};
-
-function Step({ title, desc }: StepProps) {
+function Step({ title, desc }) {
 
   return (
 
@@ -210,20 +240,11 @@ function Arrow() {
 
 
 
-type IndustryProps = {
-  title: string;
-  desc: string;
-  image: string;
-  link: string;
-};
-
-function IndustryCard({ title, desc, image, link }: IndustryProps) {
+function IndustryCard({ title, desc, image, link }) {
 
   return (
 
-    <div className="relative min-w-[620px] h-[420px] rounded-xl overflow-hidden shadow-xl">
-
-      {/* IMAGE */}
+    <div className="relative min-w-[620px] h-[420px] rounded-xl overflow-hidden shadow-lg">
 
       <img
         src={image}
@@ -231,21 +252,19 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* DARK OVERLAY */}
+      {/* LIGHTER OVERLAY */}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-      {/* CONTENT */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
 
       <div className="relative h-full flex flex-col justify-between p-6 text-white">
 
         <div>
 
-          <h3 className="text-lg font-semibold">
+          <h3 className="text-base font-semibold">
             {title}
           </h3>
 
-          <p className="text-sm text-white/80 max-w-xs mt-1">
+          <p className="text-sm text-white/90 mt-1 max-w-xs">
             {desc}
           </p>
 
@@ -253,7 +272,7 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
 
         <Link
           to={link}
-          className="bg-white text-black px-4 py-2 rounded-md text-sm font-semibold w-fit"
+          className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-semibold w-fit"
         >
           Learn More
         </Link>

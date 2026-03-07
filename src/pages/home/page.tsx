@@ -1,12 +1,11 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/feature/Header";
 import Footer from "../../components/feature/Footer";
 
-function Home() {
+export default function Home() {
 
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -165,7 +164,12 @@ function Home() {
 }
 
 
-function Step({ title, desc }) {
+type StepProps = {
+  title: string;
+  desc: string;
+};
+
+function Step({ title, desc }: StepProps) {
   return (
     <div className="border border-slate-200 rounded-lg p-6 w-56 bg-white shadow-sm">
       <div className="font-semibold mb-1">{title}</div>
@@ -173,6 +177,7 @@ function Step({ title, desc }) {
     </div>
   );
 }
+
 
 function Arrow() {
   return (
@@ -182,7 +187,15 @@ function Arrow() {
   );
 }
 
-function IndustryCard({ title, desc, image, link }) {
+
+type IndustryProps = {
+  title: string;
+  desc: string;
+  image: string;
+  link: string;
+};
+
+function IndustryCard({ title, desc, image, link }: IndustryProps) {
 
   return (
 
@@ -190,6 +203,7 @@ function IndustryCard({ title, desc, image, link }) {
 
       <img
         src={image}
+        alt={title}
         className="w-full h-64 object-cover"
       />
 
@@ -216,6 +230,3 @@ function IndustryCard({ title, desc, image, link }) {
 
   );
 }
-
-export default Home;
-```

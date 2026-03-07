@@ -2,8 +2,7 @@ import { useState } from "react";
 import Header from "../../components/feature/Header";
 import Footer from "../../components/feature/Footer";
 
-export default function Auto() {
-
+export default function Document() {
   const [plan, setPlan] = useState("starter-monthly");
 
   const pricing = {
@@ -11,97 +10,83 @@ export default function Auto() {
     "starter-annual": "$190 / year",
     "pro-monthly": "$39 / month",
     "pro-annual": "$390 / year",
-    "institutional": "Custom Pricing"
+    institutional: "Custom Pricing",
   };
 
   function goToCheckout() {
-
     if (plan === "starter-monthly") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_STARTER_MONTHLY";
+      window.location.href =
+        "/api/create-checkout-session?price=PRICE_STARTER_MONTHLY";
     }
 
     if (plan === "starter-annual") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_STARTER_YEARLY";
+      window.location.href =
+        "/api/create-checkout-session?price=PRICE_STARTER_YEARLY";
     }
 
     if (plan === "pro-monthly") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_PRO_MONTHLY";
+      window.location.href =
+        "/api/create-checkout-session?price=PRICE_PRO_MONTHLY";
     }
 
     if (plan === "pro-annual") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_PRO_YEARLY";
+      window.location.href =
+        "/api/create-checkout-session?price=PRICE_PRO_YEARLY";
     }
 
     if (plan === "institutional") {
-      window.location.href = "/contact?vertical=automotive";
+      window.location.href = "/contact?vertical=document";
     }
-
   }
 
   return (
-
     <div className="min-h-screen bg-white">
-
       <Header />
 
       <section className="py-24">
-
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
-
           {/* LEFT SIDE */}
-
           <div>
-
             <span className="text-xs uppercase tracking-wider text-slate-500">
-              Automotive Certification Infrastructure
+              Institutional Certification Infrastructure
             </span>
 
             <h1 className="mt-4 text-4xl font-semibold text-slate-900">
-              Independent Vehicle Record Certification
+              Independent Document Certification
             </h1>
 
             <p className="mt-4 text-slate-600 max-w-xl">
-              Tamper-evident certification and independent verification for vehicle titles,
-              bill of sale records, and dealer transactions — without storing document contents.
+              Protect contracts, legal records, and institutional documentation
+              with tamper-proof cryptographic certification and independent
+              verification.
             </p>
 
-
-            {/* USE CASES */}
-
             <h2 className="text-3xl font-semibold text-slate-900 mt-14">
-              Automotive Certification Use Cases
+              Institutional Certification Use Cases
             </h2>
 
             <p className="mt-4 text-slate-600 max-w-xl">
-              Protect vehicle ownership records and dealership transactions
-              with tamper-proof cryptographic certification.
+              Built for real estate transactions, legal records, institutional
+              documentation, and compliance archives.
             </p>
 
             <div className="grid grid-cols-2 gap-8 mt-10 text-sm text-slate-700">
-
-              <div>Dealership Sales Records</div>
-              <div>Private Vehicle Sales</div>
-
-              <div>VIN Verification</div>
-              <div>Title Transfers</div>
-
-              <div>Dealer Compliance</div>
-              <div>Vehicle History Records</div>
-
+              <div>Law Firms</div>
+              <div>Title & Escrow</div>
+              <div>Mortgage & Lending</div>
+              <div>Private Agreements</div>
+              <div>Homeowners</div>
+              <div>Institutional Records</div>
             </div>
-
           </div>
 
-
           {/* RIGHT SIDE PRICING */}
-
           <div>
-
             <div className="space-y-3 text-sm">
-
               <PlanRow
                 title="Starter"
                 subtitle="Monthly"
+                details="25 certifications/month • 25MB per file"
                 price="$19 / month"
                 active={plan === "starter-monthly"}
                 onClick={() => setPlan("starter-monthly")}
@@ -110,6 +95,7 @@ export default function Auto() {
               <PlanRow
                 title="Starter"
                 subtitle="Annual"
+                details="25 certifications/month • 25MB per file"
                 price="$190 / year"
                 active={plan === "starter-annual"}
                 onClick={() => setPlan("starter-annual")}
@@ -118,6 +104,7 @@ export default function Auto() {
               <PlanRow
                 title="Professional"
                 subtitle="Monthly"
+                details="70 certifications/month • 50MB per file"
                 price="$39 / month"
                 active={plan === "pro-monthly"}
                 onClick={() => setPlan("pro-monthly")}
@@ -126,6 +113,7 @@ export default function Auto() {
               <PlanRow
                 title="Professional"
                 subtitle="Annual"
+                details="70 certifications/month • 50MB per file"
                 price="$390 / year"
                 active={plan === "pro-annual"}
                 onClick={() => setPlan("pro-annual")}
@@ -134,21 +122,15 @@ export default function Auto() {
               <PlanRow
                 title="Institutional"
                 subtitle="Enterprise"
+                details="Volume pricing • API access • Batch processing"
                 price="Custom"
                 active={plan === "institutional"}
                 onClick={() => setPlan("institutional")}
               />
-
             </div>
 
-
-            {/* PRICE BLOCK */}
-
             <div className="mt-10 flex items-center justify-between border-t pt-6">
-
-              <div className="text-2xl font-semibold">
-                {pricing[plan]}
-              </div>
+              <div className="text-2xl font-semibold">{pricing[plan]}</div>
 
               <button
                 onClick={goToCheckout}
@@ -156,46 +138,45 @@ export default function Auto() {
               >
                 Order Now
               </button>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       <Footer />
-
     </div>
-
   );
-
 }
 
-
-function PlanRow({ title, subtitle, price, active, onClick }) {
-
+function PlanRow({
+  title,
+  subtitle,
+  details,
+  price,
+  active,
+  onClick,
+}: {
+  title: string;
+  subtitle: string;
+  details: string;
+  price: string;
+  active: boolean;
+  onClick: () => void;
+}) {
   return (
-
     <button
       onClick={onClick}
-      className={`w-full flex justify-between items-center border rounded-lg px-6 py-4 ${
+      className={`w-full flex justify-between items-start border rounded-lg px-6 py-4 ${
         active ? "border-blue-600 bg-blue-50" : "border-slate-200"
       }`}
     >
-
-      <div className="text-left">
-        <div className="font-medium">{title}</div>
-        <div className="text-xs text-slate-500">{subtitle}</div>
+      <div className="text-left pr-6">
+        <div className="font-medium text-slate-900">{title}</div>
+        <div className="text-xs text-slate-500 mt-1">{subtitle}</div>
+        <div className="text-xs text-slate-500 mt-2">{details}</div>
       </div>
 
-      <div className="text-slate-600">
-        {price}
-      </div>
-
+      <div className="text-slate-600 whitespace-nowrap mt-1">{price}</div>
     </button>
-
   );
-
 }

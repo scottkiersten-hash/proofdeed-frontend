@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/feature/Header";
 import Footer from "../../components/feature/Footer";
@@ -45,58 +44,31 @@ export default function Auto() {
 
       <Header />
 
-      {/* HERO */}
-
-      <section className="relative py-24 overflow-hidden mt-16">
-
-        <div className="absolute inset-0">
-
-          <img
-            src="https://readdy.ai/api/search-image?query=modern%20automotive%20dealership%20environment%20with%20vehicle%20record%20verification%20technology%2C%20professional%20VIN%20validation%20systems%20for%20title%20transfers%20and%20bill%20of%20sale%20records%2C%20bright%20clean%20dealership%20office%20setting%20with%20cars%20and%20digital%20document%20systems%2C%20premium%20automotive%20certification%20infrastructure&width=1920&height=800"
-            alt="Automotive certification infrastructure"
-            className="w-full h-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-slate-900/30"></div>
-
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6">
-
-          <div className="max-w-3xl">
-
-            <span className="text-xs uppercase tracking-wider text-white/80">
-              Automotive Certification Infrastructure
-            </span>
-
-            <h1 className="text-5xl font-bold text-white mt-4">
-              Independent Vehicle Record Certification
-            </h1>
-
-            <p className="text-lg text-slate-200 mt-6">
-              Tamper-evident certification and independent verification for vehicle
-              titles, bill of sale records, and dealer transactions.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* PRICING + INFO */}
-
       <section className="py-24">
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
-
 
           {/* LEFT SIDE */}
 
           <div>
 
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <span className="text-xs uppercase tracking-wider text-slate-500">
+              Automotive Certification Infrastructure
+            </span>
+
+            <h1 className="mt-4 text-4xl font-semibold text-slate-900">
+              Independent Vehicle Record Certification
+            </h1>
+
+            <p className="mt-4 text-slate-600 max-w-xl">
+              Tamper-evident certification and independent verification for vehicle titles,
+              bill of sale records, and dealer transactions — without storing document contents.
+            </p>
+
+
+            {/* USE CASES */}
+
+            <h2 className="text-3xl font-semibold text-slate-900 mt-14">
               Automotive Certification Use Cases
             </h2>
 
@@ -105,7 +77,7 @@ export default function Auto() {
               with tamper-proof cryptographic certification.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 mt-12 text-sm text-slate-700">
+            <div className="grid grid-cols-2 gap-8 mt-10 text-sm text-slate-700">
 
               <div>Dealership Sales Records</div>
               <div>Private Vehicle Sales</div>
@@ -121,7 +93,7 @@ export default function Auto() {
           </div>
 
 
-          {/* RIGHT SIDE TESLA STYLE */}
+          {/* RIGHT SIDE PRICING */}
 
           <div>
 

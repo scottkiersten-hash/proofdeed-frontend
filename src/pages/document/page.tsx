@@ -84,6 +84,7 @@ export default function Document() {
             <PlanRow
               title="Starter"
               subtitle="Monthly"
+              details="25 certifications/month • 25MB per file • Single user • Dashboard access"
               price="$19 / month"
               active={plan === "starter-monthly"}
               onClick={() => setPlan("starter-monthly")}
@@ -92,6 +93,7 @@ export default function Document() {
             <PlanRow
               title="Starter"
               subtitle="Annual"
+              details="25 certifications/month • 25MB per file • Single user • Dashboard access"
               price="$190 / year"
               active={plan === "starter-annual"}
               onClick={() => setPlan("starter-annual")}
@@ -100,6 +102,7 @@ export default function Document() {
             <PlanRow
               title="Professional"
               subtitle="Monthly"
+              details="70 certifications/month • 50MB per file • Multi-user access • Priority support"
               price="$39 / month"
               active={plan === "pro-monthly"}
               onClick={() => setPlan("pro-monthly")}
@@ -108,6 +111,7 @@ export default function Document() {
             <PlanRow
               title="Professional"
               subtitle="Annual"
+              details="70 certifications/month • 50MB per file • Multi-user access • Priority support"
               price="$390 / year"
               active={plan === "pro-annual"}
               onClick={() => setPlan("pro-annual")}
@@ -116,6 +120,7 @@ export default function Document() {
             <PlanRow
               title="Institutional"
               subtitle="Enterprise"
+              details="Volume pricing • API access • Batch processing • Dedicated support"
               price="Custom"
               active={plan === "institutional"}
               onClick={() => setPlan("institutional")}
@@ -151,23 +156,34 @@ export default function Document() {
 }
 
 
-function PlanRow({ title, subtitle, price, active, onClick }) {
+function PlanRow({ title, subtitle, details, price, active, onClick }) {
 
   return (
 
     <button
       onClick={onClick}
-      className={`w-full flex justify-between items-center border rounded-lg px-6 py-4 ${
+      className={`w-full flex justify-between items-start border rounded-lg px-6 py-4 ${
         active ? "border-blue-600 bg-blue-50" : "border-slate-200"
       }`}
     >
 
-      <div className="text-left">
-        <div className="font-medium">{title}</div>
-        <div className="text-xs text-slate-500">{subtitle}</div>
+      <div className="text-left pr-6">
+
+        <div className="font-medium text-slate-900">
+          {title}
+        </div>
+
+        <div className="text-xs text-slate-500 mt-1">
+          {subtitle}
+        </div>
+
+        <div className="text-xs text-slate-500 mt-2">
+          {details}
+        </div>
+
       </div>
 
-      <div className="text-slate-600">
+      <div className="text-slate-600 whitespace-nowrap mt-1">
         {price}
       </div>
 

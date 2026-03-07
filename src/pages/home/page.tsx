@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/feature/Header";
 import Footer from "../../components/feature/Footer";
@@ -30,38 +30,19 @@ export default function Home() {
       <Header />
 
 
-      {/* HERO */}
+      {/* HERO MESSAGE */}
 
-      <section className="pt-20 pb-10">
-
-        <div className="max-w-5xl mx-auto px-6 text-center">
-
-          <h1 className="text-6xl md:text-7xl font-bold mb-6">
-            PROOFDEED
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Verifiable Digital Certification for Government Records, Real Estate
-            Transactions, Legal & Title Workflows, Notarization Services, and
-            Vehicle Transfers.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      {/* RESTORED DESCRIPTION LINE */}
-
-      <section className="pb-10">
+      <section className="pt-24 pb-14">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
 
-          <p className="text-slate-600 leading-relaxed">
-            ProofDeed creates tamper-evident certification for critical records.
-            Each certification generates a cryptographic fingerprint anchored
-            to an immutable timestamp allowing anyone to independently verify
-            authenticity without storing the original document.
+          <h1 className="text-3xl md:text-4xl font-semibold leading-snug">
+            Secure Digital Certification for Government Records, Real Estate Transactions,
+            Legal & Title Workflows, Notarization Services, and Vehicle Transfers.
+          </h1>
+
+          <p className="text-slate-600 mt-5 text-lg">
+            Tamper-evident cryptographic certification with independent verification.
           </p>
 
         </div>
@@ -71,15 +52,15 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
 
-      <section className="pb-24">
+      <section className="pb-20">
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-14">
+          <h2 className="text-xl font-semibold mb-10 text-slate-700">
             How It Works
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6">
 
             <Step title="Document" desc="Original record submitted" />
             <Arrow />
@@ -96,7 +77,7 @@ export default function Home() {
       </section>
 
 
-      {/* TESLA STYLE INDUSTRY CAROUSEL */}
+      {/* INDUSTRY CAROUSEL */}
 
       <section className="pb-28">
 
@@ -110,7 +91,6 @@ export default function Home() {
           >
             ‹
           </button>
-
 
           {/* RIGHT ARROW */}
 
@@ -137,14 +117,14 @@ export default function Home() {
             <IndustryCard
               title="Institutional"
               desc="Banking, legal documentation and real estate certification."
-              image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+              image="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
               link="/document"
             />
 
             <IndustryCard
               title="Automotive"
               desc="VIN verification and dealer title authentication."
-              image="https://images.unsplash.com/photo-1542362567-b07e54358753"
+              image="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
               link="/auto"
             />
 
@@ -159,7 +139,7 @@ export default function Home() {
               <div
                 key={i}
                 className={`w-2 h-2 rounded-full ${
-                  index === i ? "bg-black" : "bg-slate-300"
+                  index === i ? "bg-blue-600" : "bg-slate-300"
                 }`}
               />
             ))}
@@ -177,7 +157,7 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl font-semibold mb-6">
             Affiliate Program
           </h2>
 
@@ -188,7 +168,7 @@ export default function Home() {
 
           <Link
             to="/affiliates"
-            className="bg-black text-white px-8 py-4 rounded-lg font-semibold"
+            className="bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-semibold"
           >
             Become a Partner
           </Link>
@@ -249,12 +229,12 @@ function IndustryCard({ title, desc, image, link }) {
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover brightness-105"
       />
 
-      {/* LIGHTER OVERLAY */}
+      {/* VERY LIGHT OVERLAY */}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
 
       <div className="relative h-full flex flex-col justify-between p-6 text-white">
 

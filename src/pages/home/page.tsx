@@ -13,6 +13,16 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const scrollLeft = () => {
+    const el = document.getElementById("industry-scroll");
+    if (el) el.scrollBy({ left: -720, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    const el = document.getElementById("industry-scroll");
+    if (el) el.scrollBy({ left: 720, behavior: "smooth" });
+  };
+
   return (
 
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
@@ -71,17 +81,11 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
 
             <Step title="Document" desc="Original record submitted" />
-
             <Arrow />
-
             <Step title="SHA-256 Hash" desc="Cryptographic fingerprint" />
-
             <Arrow />
-
             <Step title="Blockchain Anchor" desc="Immutable timestamp" />
-
             <Arrow />
-
             <Step title="ProofDeed Certificate" desc="Public verification" />
 
           </div>
@@ -93,36 +97,61 @@ export default function Home() {
 
       {/* INDUSTRIES */}
 
-      <section className="pb-28">
+      <section className="pb-32">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-4xl font-bold mb-12">
             Industries
           </h2>
 
-          <div className="flex gap-6 overflow-x-auto pb-4">
+          <div className="relative">
 
-            <IndustryCard
-              title="Government Certification"
-              desc="Fraud prevention and public record integrity systems."
-              image="https://images.unsplash.com/photo-1541872703-74c5e44368f9"
-              link="/government"
-            />
+            {/* LEFT ARROW */}
 
-            <IndustryCard
-              title="Institutional Certification"
-              desc="Secure certification for banking, legal documentation and real estate."
-              image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85"
-              link="/document"
-            />
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center"
+            >
+              ←
+            </button>
 
-            <IndustryCard
-              title="Automotive Certification"
-              desc="VIN validation, title authentication and dealer verification."
-              image="https://images.unsplash.com/photo-1493238792000-8113da705763"
-              link="/auto"
-            />
+            {/* RIGHT ARROW */}
+
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center"
+            >
+              →
+            </button>
+
+            <div
+              id="industry-scroll"
+              className="flex gap-8 overflow-x-auto scroll-smooth pb-6 px-12"
+            >
+
+              <IndustryCard
+                title="Government Certification"
+                desc="Fraud prevention and public record integrity systems for agencies and compliance infrastructure."
+                image="https://images.unsplash.com/photo-1585241936939-be4099591252"
+                link="/government"
+              />
+
+              <IndustryCard
+                title="Institutional Certification"
+                desc="Secure certification for banking, legal documentation and real estate transactions."
+                image="https://images.unsplash.com/photo-1507679799987-c73779587ccf"
+                link="/document"
+              />
+
+              <IndustryCard
+                title="Automotive Certification"
+                desc="VIN validation, title authentication and dealer verification systems."
+                image="https://images.unsplash.com/photo-1542362567-b07e54358753"
+                link="/auto"
+              />
+
+            </div>
 
           </div>
 
@@ -160,7 +189,9 @@ export default function Home() {
       <Footer />
 
     </div>
+
   );
+
 }
 
 
@@ -170,21 +201,34 @@ type StepProps = {
 };
 
 function Step({ title, desc }: StepProps) {
+
   return (
+
     <div className="border border-slate-200 rounded-lg p-6 w-56 bg-white shadow-sm">
-      <div className="font-semibold mb-1">{title}</div>
-      <div className="text-sm text-slate-500">{desc}</div>
+
+      <div className="font-semibold mb-1">
+        {title}
+      </div>
+
+      <div className="text-sm text-slate-500">
+        {desc}
+      </div>
+
     </div>
+
   );
+
 }
 
 
 function Arrow() {
+
   return (
     <div className="text-2xl text-slate-400 hidden md:block">
       →
     </div>
   );
+
 }
 
 
@@ -199,27 +243,33 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
 
   return (
 
-    <div className="min-w-[420px] bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="relative min-w-[720px] h-[460px] rounded-2xl overflow-hidden shadow-xl">
 
       <img
         src={image}
         alt={title}
-        className="w-full h-64 object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className="p-6">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-        <h3 className="text-2xl font-semibold mb-3">
-          {title}
-        </h3>
+      <div className="relative h-full flex flex-col justify-between p-10 text-white">
 
-        <p className="text-slate-600 mb-6">
-          {desc}
-        </p>
+        <div>
+
+          <h3 className="text-4xl font-bold mb-3">
+            {title}
+          </h3>
+
+          <p className="text-white/90 text-lg max-w-md">
+            {desc}
+          </p>
+
+        </div>
 
         <Link
           to={link}
-          className="bg-black text-white px-6 py-3 rounded-lg font-semibold"
+          className="bg-white text-black px-6 py-3 rounded-lg font-semibold w-fit"
         >
           Learn More
         </Link>
@@ -229,4 +279,5 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
     </div>
 
   );
+
 }

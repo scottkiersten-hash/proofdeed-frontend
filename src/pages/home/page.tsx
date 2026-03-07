@@ -29,21 +29,43 @@ export default function Home() {
 
       <Header />
 
+      {/* HERO */}
 
-      {/* HERO MESSAGE */}
-
-      <section className="pt-24 pb-14">
+      <section className="pt-24 pb-20">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
 
-          <h1 className="text-3xl md:text-4xl font-semibold leading-snug">
-            Secure Digital Certification for Government Records, Real Estate Transactions,
-            Legal & Title Workflows, Notarization Services, and Vehicle Transfers.
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            A New Standard for Record Verification
           </h1>
 
-          <p className="text-slate-600 mt-5 text-lg">
-            Tamper-evident cryptographic certification with independent verification.
+          <p className="text-slate-600 mt-6 text-lg">
+            Secure digital certification for government records, legal documents,
+            real estate transactions and vehicle transfers.
           </p>
+
+          <p className="text-slate-500 mt-4 text-base">
+            Every certification creates a <b>cryptographic fingerprint anchored to an immutable blockchain timestamp</b>,
+            allowing anyone to independently verify authenticity without storing the original document.
+          </p>
+
+          <div className="mt-10 flex justify-center gap-4">
+
+            <Link
+              to="/upload"
+              className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold"
+            >
+              Certify Document
+            </Link>
+
+            <Link
+              to="/verify"
+              className="border border-slate-300 px-6 py-3 rounded-md font-semibold"
+            >
+              Verify Certificate
+            </Link>
+
+          </div>
 
         </div>
 
@@ -77,13 +99,11 @@ export default function Home() {
       </section>
 
 
-      {/* INDUSTRY CAROUSEL */}
+      {/* INDUSTRIES CAROUSEL */}
 
       <section className="pb-28">
 
         <div className="relative max-w-7xl mx-auto px-6">
-
-          {/* LEFT ARROW */}
 
           <button
             onClick={scrollLeft}
@@ -91,8 +111,6 @@ export default function Home() {
           >
             ‹
           </button>
-
-          {/* RIGHT ARROW */}
 
           <button
             onClick={scrollRight}
@@ -110,28 +128,26 @@ export default function Home() {
             <IndustryCard
               title="Government"
               desc="Public record integrity and fraud prevention infrastructure."
-              image="https://images.unsplash.com/photo-1585241936939-be4099591252"
+              image="/images/government.jpg"
               link="/government"
             />
 
             <IndustryCard
               title="Institutional"
               desc="Banking, legal documentation and real estate certification."
-              image="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+              image="/images/institutional.jpg"
               link="/document"
             />
 
             <IndustryCard
               title="Automotive"
               desc="VIN verification and dealer title authentication."
-              image="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+              image="/images/vehicle.jpg"
               link="/auto"
             />
 
           </div>
 
-
-          {/* DOTS */}
 
           <div className="flex justify-center gap-2 mt-6">
 
@@ -168,7 +184,7 @@ export default function Home() {
 
           <Link
             to="/affiliates"
-            className="bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-semibold"
+            className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold"
           >
             Become a Partner
           </Link>
@@ -182,9 +198,7 @@ export default function Home() {
     </div>
 
   );
-
 }
-
 
 
 function Step({ title, desc }) {
@@ -232,9 +246,7 @@ function IndustryCard({ title, desc, image, link }) {
         className="absolute inset-0 w-full h-full object-cover brightness-105"
       />
 
-      {/* VERY LIGHT OVERLAY */}
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-transparent" />
 
       <div className="relative h-full flex flex-col justify-between p-6 text-white">
 

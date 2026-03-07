@@ -1,42 +1,38 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../../components/feature/Header';
-import Footer from '../../components/feature/Footer';
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Header from '../../components/feature/Header'
+import Footer from '../../components/feature/Footer'
 
-import governmentImg from '../../assets/hero/government.jpg';
-import documentImg from '../../assets/hero/document.jpg';
-import autoImg from '../../assets/hero/auto.jpg';
-import affiliatesImg from '../../assets/hero/affiliates.jpg';
+import governmentImg from '../../assets/hero/government.jpg'
+import documentImg from '../../assets/hero/document.jpg'
+import autoImg from '../../assets/hero/auto.jpg'
 
 export default function Home() {
 
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <div
-      className="min-h-screen overflow-x-hidden"
-      style={{ background: 'linear-gradient(180deg, #0B1220 0%, #0E1A2F 100%)' }}
-    >
+    <div className="min-h-screen overflow-x-hidden bg-white text-black">
 
       <Header />
 
       {/* HERO */}
 
-      <section className="relative pt-16 md:pt-20 pb-12">
+      <section className="pt-20 pb-16">
 
-        <div className="max-w-5xl mx-auto px-6 pt-10 pb-10 text-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#EAF2FF]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             PROOFDEED
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Verifiable Digital Certification for Government Records, Real Estate Transactions,
             Legal & Title Workflows, Notarization Services, and Vehicle Transfers.
           </p>
@@ -46,16 +42,16 @@ export default function Home() {
       </section>
 
 
-      {/* STORY PARAGRAPH */}
+      {/* STORY */}
 
-      <section className="pb-8">
+      <section className="pb-12">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
 
-          <p className="text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="text-slate-600 leading-relaxed">
             ProofDeed creates tamper-evident certification for critical records.
             Each certification generates a cryptographic fingerprint anchored to
-            an immutable timestamp, allowing anyone to independently verify
+            an immutable timestamp allowing anyone to independently verify
             authenticity without storing the original document.
           </p>
 
@@ -66,41 +62,41 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
 
-      <section className="pb-16">
+      <section className="pb-24">
 
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-14">
             How It Works
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-slate-300">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
 
-            <div className="border border-white/10 rounded-lg p-6 w-56">
-              <div className="text-white font-semibold mb-1">Document</div>
-              <div className="text-sm text-slate-400">Original record submitted</div>
-            </div>
+            <Step
+              title="Document"
+              desc="Original record submitted"
+            />
 
-            <div className="text-2xl text-slate-500">→</div>
+            <Arrow />
 
-            <div className="border border-white/10 rounded-lg p-6 w-56">
-              <div className="text-white font-semibold mb-1">SHA-256 Hash</div>
-              <div className="text-sm text-slate-400">Cryptographic fingerprint</div>
-            </div>
+            <Step
+              title="SHA-256 Hash"
+              desc="Cryptographic fingerprint"
+            />
 
-            <div className="text-2xl text-slate-500">→</div>
+            <Arrow />
 
-            <div className="border border-white/10 rounded-lg p-6 w-56">
-              <div className="text-white font-semibold mb-1">Blockchain Anchor</div>
-              <div className="text-sm text-slate-400">Immutable timestamp</div>
-            </div>
+            <Step
+              title="Blockchain Anchor"
+              desc="Immutable timestamp"
+            />
 
-            <div className="text-2xl text-slate-500">→</div>
+            <Arrow />
 
-            <div className="border border-white/10 rounded-lg p-6 w-56">
-              <div className="text-white font-semibold mb-1">ProofDeed Certificate</div>
-              <div className="text-sm text-slate-400">Public verification</div>
-            </div>
+            <Step
+              title="ProofDeed Certificate"
+              desc="Public verification"
+            />
 
           </div>
 
@@ -109,59 +105,58 @@ export default function Home() {
       </section>
 
 
-      {/* INDUSTRY PANELS */}
+      {/* INDUSTRIES — TESLA STYLE */}
 
-      <section className="pb-16">
+      <section className="max-w-7xl mx-auto px-6 pb-24 space-y-24">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-h-[55vh]">
+        {/* GOVERNMENT */}
 
-          <HeroPanel
-            to="/government"
-            image={governmentImg}
-            title="Government Certification"
-            desc="Fraud prevention and public record integrity systems."
-            cta="Access Government Solutions"
-          />
+        <Industry
+          image={governmentImg}
+          title="Government Certification"
+          desc="Fraud prevention and public record integrity systems for agencies and compliance infrastructure."
+          link="/government"
+        />
 
-          <HeroPanel
-            to="/document"
-            image={documentImg}
-            title="Institutional Certification"
-            desc="Secure certification for banking, finance, legal and real estate."
-            cta="View Certification Plans"
-          />
+        {/* INSTITUTIONAL */}
 
-          <HeroPanel
-            to="/auto"
-            image={autoImg}
-            title="Automotive Certification"
-            desc="VIN validation, title authentication, dealer integrity."
-            cta="Explore Automotive Solutions"
-          />
+        <Industry
+          image={documentImg}
+          title="Institutional Certification"
+          desc="Secure certification for banking, finance, legal documentation and real estate transactions."
+          link="/document"
+        />
 
-        </div>
+        {/* AUTOMOTIVE */}
+
+        <Industry
+          image={autoImg}
+          title="Automotive Certification"
+          desc="VIN validation, title authentication and dealer verification infrastructure."
+          link="/auto"
+        />
 
       </section>
 
 
-      {/* AFFILIATE SECTION */}
+      {/* AFFILIATES */}
 
-      <section className="py-20 bg-[#0E1A2F]">
+      <section className="bg-slate-100 py-20">
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Affiliate Program
           </h2>
 
-          <p className="text-slate-300 max-w-3xl mx-auto mb-10">
-            Revenue partnerships and API integration programs for organizations
-            introducing ProofDeed certification infrastructure.
+          <p className="text-slate-600 mb-10">
+            Revenue partnerships and API integrations for organizations introducing
+            ProofDeed certification infrastructure.
           </p>
 
           <Link
             to="/affiliates"
-            className="inline-block bg-white text-black font-semibold px-8 py-4 rounded-lg hover:bg-slate-200 transition"
+            className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-800"
           >
             Become a Partner
           </Link>
@@ -174,44 +169,61 @@ export default function Home() {
       <Footer />
 
     </div>
-  );
+  )
 }
 
 
-function HeroPanel({ to, image, title, desc, cta }) {
+
+function Step({ title, desc }) {
+  return (
+    <div className="border border-slate-200 rounded-lg p-6 w-56 bg-white shadow-sm">
+      <div className="font-semibold mb-1">{title}</div>
+      <div className="text-sm text-slate-500">{desc}</div>
+    </div>
+  )
+}
+
+
+function Arrow() {
+  return (
+    <div className="text-2xl text-slate-400 hidden md:block">
+      →
+    </div>
+  )
+}
+
+
+function Industry({ image, title, desc, link }) {
 
   return (
 
-    <Link
-      to={to}
-      className="relative group overflow-hidden"
-    >
+    <div className="grid md:grid-cols-2 gap-12 items-center">
 
       <img
         src={image}
-        alt={title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="rounded-xl shadow-xl"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+      <div>
 
-      <div className="relative h-full flex flex-col justify-end p-8 text-center">
-
-        <h3 className="text-2xl font-bold text-white mb-3">
+        <h3 className="text-4xl font-semibold mb-4">
           {title}
         </h3>
 
-        <p className="text-slate-200 mb-6">
+        <p className="text-slate-600 mb-6">
           {desc}
         </p>
 
-        <div className="border border-white/60 py-3 rounded-lg text-white font-semibold group-hover:bg-white group-hover:text-black transition-all">
-          {cta}
-        </div>
+        <Link
+          to={link}
+          className="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800"
+        >
+          Learn More
+        </Link>
 
       </div>
 
-    </Link>
+    </div>
 
-  );
+  )
 }

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import Success from "./pages/Success";
 
 /* ===========================
 SCROLL TO TOP ON ROUTE CHANGE
@@ -44,6 +45,9 @@ function App() {
 
           {/* User Dashboard */}
           <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* Stripe Success Page */}
+          <Route path="/success" element={<Success />} />
 
         </Routes>
 

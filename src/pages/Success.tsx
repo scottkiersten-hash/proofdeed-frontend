@@ -1,23 +1,11 @@
+import React from "react";
+
 export default function Success() {
   return (
-    <div style={{ padding: "80px", textAlign: "center" }}>
+    <div style={{padding: "80px", textAlign: "center"}}>
       <h1>Payment Successful</h1>
-      <p>Your subscription is active.</p>
-
-      <a
-        href="/document"
-        style={{
-          marginTop: "20px",
-          display: "inline-block",
-          padding: "12px 24px",
-          background: "#2563EB",
-          color: "#fff",
-          borderRadius: "6px",
-          textDecoration: "none",
-        }}
-      >
-        Continue
-      </a>
+      <p>Your ProofDeed subscription is now active.</p>
+      <a href="/">Return to Home</a>
     </div>
   );
 }

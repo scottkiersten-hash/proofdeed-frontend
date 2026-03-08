@@ -1,7 +1,7 @@
 import React from "react";
 import type { RouteObject } from "react-router-dom";
 
-import Success from "../pages/Success";
+import Success from "../Success";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/home/page";
 import Upload from "../pages/upload/page";

@@ -53,30 +53,35 @@ export default function Automotive() {
             </span>
 
             <h1 className="mt-4 text-4xl font-semibold text-slate-900">
-              Independent Vehicle Record Certification
+              Built for Dealers, Buyers, and Sellers
             </h1>
 
             <p className="mt-4 text-slate-600 max-w-xl">
-              Tamper-evident certification for vehicle titles, VIN transfers,
-              bill of sale records, and dealership transaction documentation.
+              Secure VIN validation and title integrity for automotive
+              professionals and vehicle transactions using tamper-evident
+              certification.
             </p>
 
-            <h2 className="text-3xl font-semibold text-slate-900 mt-14">
-              Automotive Certification Use Cases
-            </h2>
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
 
-            <p className="mt-4 text-slate-600 max-w-xl">
-              Built for dealerships, auctions, fleet operators, and vehicle
-              ownership transfers requiring independently verifiable records.
-            </p>
+              <FeatureCard
+                icon="🚗"
+                title="VIN Transfer Certification"
+                description="Create immutable proof of vehicle ownership transfers at the moment of sale with cryptographic verification."
+              />
 
-            <div className="grid grid-cols-2 gap-8 mt-10 text-sm text-slate-700">
-              <div>VIN Transfer Certification</div>
-              <div>Title Integrity Validation</div>
-              <div>Dealer Transaction Records</div>
-              <div>Auction Documentation</div>
-              <div>Fleet Vehicle Records</div>
-              <div>Private Vehicle Sales</div>
+              <FeatureCard
+                icon="📄"
+                title="Title Integrity Validation"
+                description="Verify title authenticity and detect alterations with tamper-evident certification infrastructure."
+              />
+
+              <FeatureCard
+                icon="✔️"
+                title="Dealer Compliance Records"
+                description="Maintain permanent audit trails for bill of sale documents, odometer disclosures, and dealership transaction records."
+              />
+
             </div>
           </div>
 
@@ -145,6 +150,24 @@ export default function Automotive() {
       </section>
 
       <Footer />
+    </div>
+  );
+}
+
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="border rounded-xl p-6 text-left">
+      <div className="text-2xl mb-3">{icon}</div>
+      <div className="font-semibold text-slate-900">{title}</div>
+      <p className="text-sm text-slate-600 mt-2">{description}</p>
     </div>
   );
 }

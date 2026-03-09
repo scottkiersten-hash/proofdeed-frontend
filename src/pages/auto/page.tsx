@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../../components/feature/Header";
 import Footer from "../../components/feature/Footer";
 
-export default function Document() {
+export default function Automotive() {
   const [plan, setPlan] = useState("starter-monthly");
 
   const pricing = {
@@ -35,7 +35,7 @@ export default function Document() {
     }
 
     if (plan === "institutional") {
-      window.location.href = "/contact?vertical=document";
+      window.location.href = "/contact?vertical=automotive";
     }
   }
 
@@ -45,38 +45,38 @@ export default function Document() {
 
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+
           {/* LEFT SIDE */}
           <div>
             <span className="text-xs uppercase tracking-wider text-slate-500">
-              Institutional Certification Infrastructure
+              Automotive Certification Infrastructure
             </span>
 
             <h1 className="mt-4 text-4xl font-semibold text-slate-900">
-              Independent Document Certification
+              Independent Vehicle Record Certification
             </h1>
 
             <p className="mt-4 text-slate-600 max-w-xl">
-              Protect contracts, legal records, and institutional documentation
-              with tamper-proof cryptographic certification and independent
-              verification.
+              Tamper-evident certification for vehicle titles, VIN transfers,
+              bill of sale records, and dealership transaction documentation.
             </p>
 
             <h2 className="text-3xl font-semibold text-slate-900 mt-14">
-              Institutional Certification Use Cases
+              Automotive Certification Use Cases
             </h2>
 
             <p className="mt-4 text-slate-600 max-w-xl">
-              Built for real estate transactions, legal records, institutional
-              documentation, and compliance archives.
+              Built for dealerships, auctions, fleet operators, and vehicle
+              ownership transfers requiring independently verifiable records.
             </p>
 
             <div className="grid grid-cols-2 gap-8 mt-10 text-sm text-slate-700">
-              <div>Law Firms</div>
-              <div>Title & Escrow</div>
-              <div>Mortgage & Lending</div>
-              <div>Private Agreements</div>
-              <div>Homeowners</div>
-              <div>Institutional Records</div>
+              <div>VIN Transfer Certification</div>
+              <div>Title Integrity Validation</div>
+              <div>Dealer Transaction Records</div>
+              <div>Auction Documentation</div>
+              <div>Fleet Vehicle Records</div>
+              <div>Private Vehicle Sales</div>
             </div>
           </div>
 
@@ -140,6 +140,7 @@ export default function Document() {
               </button>
             </div>
           </div>
+
         </div>
       </section>
 

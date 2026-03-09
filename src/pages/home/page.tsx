@@ -31,61 +31,62 @@ export default function Home() {
 
       <section className="pt-24 pb-16">
 
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6 text-center">
 
-          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900">
-            If It Can Be Disputed, It Hasn't Been Certified.
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            A New Standard for Record Verification
           </h1>
+
+          <p className="text-slate-600 mt-6 text-lg">
+            Secure digital certification for government records, legal
+            documents, real estate transactions and vehicle transfers.
+          </p>
+
+          <p className="text-slate-500 mt-4 text-base">
+            Every certification creates a <b>cryptographic fingerprint
+            anchored to an immutable blockchain timestamp</b>, allowing
+            anyone to independently verify authenticity without storing
+            the original document.
+          </p>
 
         </div>
 
       </section>
 
 
+
       {/* INFORMATION GRID */}
 
       <section className="pb-24">
 
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
 
 
           {/* BOX 1 */}
 
-          <div className="bg-sky-100 rounded-xl p-8 shadow-sm">
+          <div className="rounded-xl p-6 shadow-lg text-white"
+          style={{background:"linear-gradient(135deg,#6a11cb,#8e44ad)"}}>
 
-            <h3 className="text-lg font-semibold mb-6 text-slate-900">
-              How Certification Works
+            <h3 className="text-lg font-semibold mb-6">
+              How It Works
             </h3>
 
-            <ProcessStep
-              number="1"
-              title="SHA-256 Fingerprint"
-              desc="Cryptographic hash created from vehicle record"
-            />
+            <p className="text-sm"><b>1 SHA-256 Fingerprint</b><br/>
+            Cryptographic hash created from document contents</p>
 
-            <Arrow/>
+            <p className="text-sm mt-4"><b>2 Timestamping</b><br/>
+            Precise timestamp recorded at moment of certification</p>
 
-            <ProcessStep
-              number="2"
-              title="Timestamping"
-              desc="Precise timestamp recorded at moment of certification"
-            />
+            <p className="text-sm mt-4"><b>3 Blockchain Anchoring</b><br/>
+            Hash anchored to public blockchain for immutability</p>
 
-            <Arrow/>
+            <p className="text-sm mt-4"><b>4 Verification ID</b><br/>
+            Independent verification without document storage</p>
 
-            <ProcessStep
-              number="3"
-              title="Blockchain Anchoring"
-              desc="Hash anchored to public blockchain for immutability"
-            />
-
-            <Arrow/>
-
-            <ProcessStep
-              number="4"
-              title="Verification ID"
-              desc="Independent verification without document storage"
-            />
+            <p className="text-sm mt-6">
+            No document storage: ProofDeed generates cryptographic proof only.
+            Original documents remain under your control.
+            </p>
 
           </div>
 
@@ -93,25 +94,29 @@ export default function Home() {
 
           {/* BOX 2 */}
 
-          <div className="bg-sky-200 rounded-xl p-8 shadow-sm">
+          <div className="rounded-xl p-6 shadow-lg text-white"
+          style={{background:"linear-gradient(135deg,#7b2cbf,#9d4edd)"}}>
 
-            <h3 className="text-lg font-semibold mb-6 text-slate-900">
-              Tamper-Evident Certification
+            <h3 className="text-lg font-semibold mb-6">
+              Blockchain-Anchored Certification
             </h3>
 
-            <p className="text-sm text-slate-700 leading-relaxed">
+            <h4 className="text-lg font-semibold mb-4">
+              If It Can Be Disputed,<br/>
+              It Hasn't Been Certified.
+            </h4>
 
-              Secure digital certification for government records, legal
-              documents, real estate transactions and vehicle transfers.
-
+            <p className="text-sm">
+            Forged titles. Altered contracts. Disputed records.
+            These aren't edge cases — they're daily realities for
+            government agencies, legal professionals, and automotive networks.
             </p>
 
-            <p className="text-sm text-slate-700 leading-relaxed mt-4">
-
-              Every certification creates a cryptographic fingerprint anchored
-              to an immutable blockchain timestamp — allowing anyone to verify
-              authenticity without storing the original document.
-
+            <p className="text-sm mt-4">
+            ProofDeed generates a cryptographic fingerprint of any document,
+            anchors it permanently to the Polygon blockchain, and issues a
+            tamper-evident certificate that anyone can independently verify —
+            without ever storing your original file.
             </p>
 
           </div>
@@ -120,33 +125,30 @@ export default function Home() {
 
           {/* BOX 3 */}
 
-          <div className="bg-sky-300 rounded-xl p-8 shadow-sm">
+          <div className="rounded-xl p-6 shadow-lg text-white"
+          style={{background:"linear-gradient(135deg,#7209b7,#a663cc)"}}>
 
-            <h3 className="text-lg font-semibold mb-6 text-slate-900">
+            <h3 className="text-lg font-semibold mb-6">
               Why Organizations Trust ProofDeed
             </h3>
 
-            <ul className="text-sm space-y-4 text-slate-700">
+            <p className="text-sm">
+            <b>SHA-256 Cryptographic Certification</b><br/>
+            Industry-standard cryptographic hashing ensures document integrity
+            and tamper-evident verification.
+            </p>
 
-              <li>
-                <b>SHA-256 Cryptographic Certification</b><br/>
-                Industry-standard cryptographic hashing ensures document
-                integrity and tamper-evident verification.
-              </li>
+            <p className="text-sm mt-4">
+            <b>Multi-Layer Identity Validation</b><br/>
+            Verification protocols protect against fraud and ensure
+            authentic record creation.
+            </p>
 
-              <li>
-                <b>Multi-Layer Identity Validation</b><br/>
-                Comprehensive verification protocols protect against fraud and
-                ensure authentic record creation.
-              </li>
-
-              <li>
-                <b>Complete Audit Logging</b><br/>
-                Every action is logged with timestamps and IP tracking for full
-                compliance and accountability.
-              </li>
-
-            </ul>
+            <p className="text-sm mt-4">
+            <b>Complete Audit Logging</b><br/>
+            Every action is logged with timestamps and IP tracking for
+            compliance and accountability.
+            </p>
 
           </div>
 
@@ -154,38 +156,21 @@ export default function Home() {
 
           {/* BOX 4 */}
 
-          <div className="bg-sky-400 rounded-xl p-8 shadow-sm text-slate-900">
+          <div className="rounded-xl p-6 shadow-lg text-white"
+          style={{background:"linear-gradient(135deg,#7b2cbf,#c77dff)"}}>
 
             <h3 className="text-lg font-semibold mb-6">
               Built for Organizations That Cannot Afford Record Uncertainty
             </h3>
 
-            <p className="text-sm leading-relaxed">
-
-              Forged titles. Altered contracts. Disputed records. These aren't
-              edge cases — they're daily realities for government agencies,
-              legal professionals, and automotive networks.
-
-            </p>
-
-            <p className="text-sm leading-relaxed mt-4">
-
-              ProofDeed generates a cryptographic fingerprint of any document,
-              anchors it permanently to the Polygon blockchain, and issues a
-              tamper-evident certificate that anyone can independently verify —
-              without ever storing your original file.
-
-            </p>
-
-            <p className="text-sm leading-relaxed mt-4">
-
-              No document storage: ProofDeed generates cryptographic proof only.
-              Original documents remain under your control.
-
+            <p className="text-sm">
+            From government agencies and real estate professionals to title
+            companies, legal teams, notaries, and automotive networks —
+            ProofDeed provides verifiable digital certification that protects
+            institutions and the public.
             </p>
 
           </div>
-
 
         </div>
 
@@ -215,7 +200,7 @@ export default function Home() {
 
           <div
             id="industry-scroll"
-            className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth"
+            className="flex gap-8 overflow-x-hidden scroll-smooth"
           >
 
             <IndustryCard
@@ -245,7 +230,6 @@ export default function Home() {
 
       </section>
 
-
       <Footer />
 
     </div>
@@ -254,51 +238,16 @@ export default function Home() {
 
 
 
-function ProcessStep({number,title,desc}){
-
-  return(
-
-    <div className="bg-white rounded-lg p-4 shadow-sm">
-
-      <div className="text-xs font-bold text-slate-500">
-        {number}
-      </div>
-
-      <div className="text-sm font-semibold text-slate-900">
-        {title}
-      </div>
-
-      <div className="text-xs text-slate-500 mt-1">
-        {desc}
-      </div>
-
-    </div>
-
-  )
-
-}
-
-
-function Arrow(){
-  return (
-    <div className="flex justify-center py-3 text-slate-400">
-      ↓
-    </div>
-  )
-}
-
-
-
 function IndustryCard({title,desc,image,link}){
 
   return(
 
-    <div className="relative min-w-[900px] h-[620px] snap-center rounded-2xl overflow-hidden shadow-lg group">
+    <div className="relative min-w-[900px] h-[620px] rounded-2xl overflow-hidden shadow-lg">
 
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent"/>

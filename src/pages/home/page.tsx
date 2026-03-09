@@ -33,19 +33,20 @@ export default function Home() {
       {/* HERO */}
       <section className="pt-24 pb-10">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h1 className="text-3xl md:text-4xl font-semibold text-purple-700">
+          <h1 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             A New Standard for Record Verification
           </h1>
         </div>
       </section>
 
-      {/* INFO GRID */}
+      {/* INFORMATION GRID */}
       <section className="pb-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
           {/* BOX 1 */}
-          <div className="bg-gradient-to-br from-purple-800 to-purple-700 text-white rounded-xl p-6 shadow">
-            <h3 className="text-sm font-semibold mb-4">
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+
+            <h3 className="text-sm font-semibold mb-4 text-purple-800">
               How It Works
             </h3>
 
@@ -60,34 +61,38 @@ export default function Home() {
               <MiniStep title="Verify ID" desc="Independent validation" />
 
             </div>
+
           </div>
 
           {/* BOX 2 */}
-          <div className="bg-white border border-purple-200 text-purple-800 rounded-xl p-6 shadow">
-            <h3 className="text-sm font-semibold mb-3">
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+
+            <h3 className="text-sm font-semibold mb-3 text-purple-800">
               Secure Digital Certification
             </h3>
 
-            <p className="text-xs leading-relaxed">
+            <p className="text-xs leading-relaxed text-slate-700">
               Secure digital certification for government records, legal
               documents, real estate transactions and vehicle transfers.
             </p>
 
-            <p className="text-xs leading-relaxed mt-3">
+            <p className="text-xs leading-relaxed text-slate-700 mt-3">
               Every certification creates a cryptographic fingerprint anchored
               to an immutable blockchain timestamp, allowing anyone to
               independently verify authenticity without storing the original
               document.
             </p>
+
           </div>
 
           {/* BOX 3 */}
-          <div className="bg-white border border-purple-200 text-purple-800 rounded-xl p-6 shadow">
-            <h3 className="text-sm font-semibold mb-3">
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+
+            <h3 className="text-sm font-semibold mb-3 text-purple-800">
               Why Organizations Trust ProofDeed
             </h3>
 
-            <ul className="text-xs space-y-3">
+            <ul className="text-xs space-y-3 text-slate-700">
 
               <li>
                 <b>SHA-256 Cryptographic Certification</b><br/>
@@ -105,24 +110,26 @@ export default function Home() {
               </li>
 
             </ul>
+
           </div>
 
           {/* BOX 4 */}
-          <div className="bg-gradient-to-br from-purple-600 to-purple-500 text-white rounded-xl p-6 shadow">
-            <h3 className="text-sm font-semibold mb-3">
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+
+            <h3 className="text-sm font-semibold mb-3 text-purple-800">
               Built for Organizations That Cannot Afford Record Uncertainty
             </h3>
 
-            <p className="text-xs leading-relaxed mb-3">
+            <p className="text-xs text-slate-700 mb-3 leading-relaxed">
               From government agencies and real estate professionals to title
               companies, legal teams, notaries and automotive networks —
               ProofDeed provides verifiable digital certification that protects
               institutions and the public.
             </p>
 
-            <p className="text-xs text-purple-100">
-              No document storage: ProofDeed generates cryptographic proof
-              only. Original documents remain under your control.
+            <p className="text-xs text-purple-700">
+              No document storage: ProofDeed generates cryptographic proof only.
+              Original documents remain under your control.
             </p>
 
           </div>
@@ -220,15 +227,15 @@ export default function Home() {
 
 function MiniStep({ title, desc }) {
   return (
-    <div className="bg-white/20 rounded p-2 text-center min-w-[70px]">
-      <div className="text-[10px] font-semibold">{title}</div>
-      <div className="text-[9px] opacity-80">{desc}</div>
+    <div className="bg-white border border-purple-200 rounded p-2 text-center min-w-[75px]">
+      <div className="text-[10px] font-semibold text-purple-700">{title}</div>
+      <div className="text-[9px] text-slate-600">{desc}</div>
     </div>
   );
 }
 
 function Arrow() {
-  return <div className="text-xs opacity-70">→</div>;
+  return <div className="text-xs text-purple-400">→</div>;
 }
 
 function IndustryCard({ title, desc, image, link }) {

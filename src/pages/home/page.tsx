@@ -42,18 +42,18 @@ export default function Home() {
       </section>
 
 
-      {/* PROCESS + MESSAGE */}
+      {/* INFORMATION GRID */}
 
       <section className="pb-24">
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
 
-          {/* LEFT PROCESS BOX */}
+          {/* BOX 1 */}
 
-          <div className="bg-slate-100 rounded-xl p-8 shadow-sm">
+          <div className="bg-sky-100 rounded-xl p-8 shadow-sm">
 
-            <h3 className="text-lg font-semibold mb-6 text-slate-800">
+            <h3 className="text-lg font-semibold mb-6 text-slate-900">
               How Certification Works
             </h3>
 
@@ -91,15 +91,76 @@ export default function Home() {
 
 
 
-          {/* RIGHT MESSAGE BOX */}
+          {/* BOX 2 */}
 
-          <div className="bg-slate-100 rounded-xl p-8 shadow-sm">
+          <div className="bg-sky-200 rounded-xl p-8 shadow-sm">
 
-            <h3 className="text-lg font-semibold mb-6 text-slate-800">
+            <h3 className="text-lg font-semibold mb-6 text-slate-900">
               Tamper-Evident Certification
             </h3>
 
             <p className="text-sm text-slate-700 leading-relaxed">
+
+              Secure digital certification for government records, legal
+              documents, real estate transactions and vehicle transfers.
+
+            </p>
+
+            <p className="text-sm text-slate-700 leading-relaxed mt-4">
+
+              Every certification creates a cryptographic fingerprint anchored
+              to an immutable blockchain timestamp — allowing anyone to verify
+              authenticity without storing the original document.
+
+            </p>
+
+          </div>
+
+
+
+          {/* BOX 3 */}
+
+          <div className="bg-sky-300 rounded-xl p-8 shadow-sm">
+
+            <h3 className="text-lg font-semibold mb-6 text-slate-900">
+              Why Organizations Trust ProofDeed
+            </h3>
+
+            <ul className="text-sm space-y-4 text-slate-700">
+
+              <li>
+                <b>SHA-256 Cryptographic Certification</b><br/>
+                Industry-standard cryptographic hashing ensures document
+                integrity and tamper-evident verification.
+              </li>
+
+              <li>
+                <b>Multi-Layer Identity Validation</b><br/>
+                Comprehensive verification protocols protect against fraud and
+                ensure authentic record creation.
+              </li>
+
+              <li>
+                <b>Complete Audit Logging</b><br/>
+                Every action is logged with timestamps and IP tracking for full
+                compliance and accountability.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+
+          {/* BOX 4 */}
+
+          <div className="bg-sky-400 rounded-xl p-8 shadow-sm text-slate-900">
+
+            <h3 className="text-lg font-semibold mb-6">
+              Built for Organizations That Cannot Afford Record Uncertainty
+            </h3>
+
+            <p className="text-sm leading-relaxed">
 
               Forged titles. Altered contracts. Disputed records. These aren't
               edge cases — they're daily realities for government agencies,
@@ -107,7 +168,7 @@ export default function Home() {
 
             </p>
 
-            <p className="text-sm text-slate-700 leading-relaxed mt-6">
+            <p className="text-sm leading-relaxed mt-4">
 
               ProofDeed generates a cryptographic fingerprint of any document,
               anchors it permanently to the Polygon blockchain, and issues a
@@ -116,7 +177,15 @@ export default function Home() {
 
             </p>
 
+            <p className="text-sm leading-relaxed mt-4">
+
+              No document storage: ProofDeed generates cryptographic proof only.
+              Original documents remain under your control.
+
+            </p>
+
           </div>
+
 
         </div>
 
@@ -177,48 +246,11 @@ export default function Home() {
       </section>
 
 
-
-      {/* AFFILIATE */}
-
-      <section className="py-20">
-
-        <div className="max-w-5xl mx-auto px-6">
-
-          <div className="bg-slate-100 rounded-xl p-12 text-center shadow-sm">
-
-            <h2 className="text-xl font-semibold mb-4 text-slate-900">
-              Affiliate Program
-            </h2>
-
-            <p className="text-sm text-slate-600 mb-8">
-
-              Revenue partnerships and API integrations for organizations
-              introducing ProofDeed certification infrastructure.
-
-            </p>
-
-            <Link
-              to="/affiliates"
-              className="bg-slate-900 text-white px-6 py-3 rounded-md text-sm font-semibold"
-            >
-              Become a Partner
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
-
       <Footer />
 
     </div>
   );
 }
-
-
-
-/* COMPONENTS */
 
 
 
@@ -232,7 +264,7 @@ function ProcessStep({number,title,desc}){
         {number}
       </div>
 
-      <div className="text-sm font-semibold text-slate-800">
+      <div className="text-sm font-semibold text-slate-900">
         {title}
       </div>
 
@@ -245,7 +277,6 @@ function ProcessStep({number,title,desc}){
   )
 
 }
-
 
 
 function Arrow(){

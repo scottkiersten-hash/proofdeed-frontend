@@ -55,30 +55,117 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-xl font-semibold mb-10 text-slate-700">
-            How It Works
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-semibold mb-4">
+              How It Works
+            </h2>
+
+            <p className="text-slate-600 text-lg">
+              Independent certification infrastructure without document storage
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+
+            <ProcessBox
+              number="1"
+              title="SHA-256 Fingerprint"
+              desc="Cryptographic hash created from document contents"
+            />
+
+            <ProcessBox
+              number="2"
+              title="Timestamping"
+              desc="Precise timestamp recorded at moment of certification"
+            />
+
+            <ProcessBox
+              number="3"
+              title="Blockchain Anchoring"
+              desc="Hash anchored to public blockchain for immutability"
+            />
+
+            <ProcessBox
+              number="4"
+              title="Verification ID"
+              desc="Independent verification without document storage"
+            />
+
+          </div>
+
+          <p className="text-center text-slate-500 mt-10 max-w-3xl mx-auto">
+            No document storage: ProofDeed generates cryptographic proof only.
+            Original documents remain under your control.
+          </p>
+
+        </div>
+      </section>
+
+      {/* BLOCKCHAIN CERTIFICATION */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+
+          <h2 className="text-3xl font-semibold mb-6">
+            Blockchain-Anchored Certification
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <Step title="Document" desc="Original record submitted" />
-            <Arrow />
-            <Step title="SHA-256 Hash" desc="Cryptographic fingerprint" />
-            <Arrow />
-            <Step title="Blockchain Anchor" desc="Immutable timestamp" />
-            <Arrow />
-            <Step
-              title="ProofDeed Certificate"
-              desc="Public verification"
+          <h3 className="text-xl font-semibold mb-6">
+            If It Can Be Disputed, It Hasn't Been Certified.
+          </h3>
+
+          <p className="text-slate-600 mb-6">
+            Forged titles. Altered contracts. Disputed records. These aren't
+            edge cases — they're daily realities for government agencies, legal
+            professionals, and automotive networks.
+          </p>
+
+          <p className="text-slate-600">
+            ProofDeed generates a cryptographic fingerprint of any document,
+            anchors it permanently to the Polygon blockchain, and issues a
+            tamper-evident certificate that anyone can independently verify —
+            without ever storing your original file.
+          </p>
+
+        </div>
+      </section>
+
+      {/* TRUST SECTION */}
+      <section className="bg-slate-100 py-24">
+        <div className="max-w-6xl mx-auto px-6">
+
+          <h2 className="text-2xl font-semibold text-center mb-14">
+            Why Organizations Trust ProofDeed
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10 text-center">
+
+            <TrustItem
+              title="SHA-256 Cryptographic Certification"
+              desc="Industry-standard cryptographic hashing ensures document integrity and tamper-evident verification."
             />
+
+            <TrustItem
+              title="Multi-Layer Identity Validation"
+              desc="Comprehensive verification protocols protect against fraud and ensure authentic record creation."
+            />
+
+            <TrustItem
+              title="Complete Audit Logging"
+              desc="Every action is logged with timestamps and IP tracking for full compliance and accountability."
+            />
+
           </div>
+
         </div>
       </section>
 
       {/* INDUSTRY CAROUSEL */}
-      <section className="pb-28">
+      <section className="pb-28 pt-24">
         <div className="relative max-w-[1600px] mx-auto px-6">
+
           <button
             onClick={scrollLeft}
             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow rounded-lg w-10 h-10 flex items-center justify-center"
@@ -97,6 +184,7 @@ export default function Home() {
             id="industry-scroll"
             className="flex gap-12 overflow-x-hidden scroll-smooth"
           >
+
             <IndustryCard
               title="Government"
               desc="Public record integrity and fraud prevention infrastructure."
@@ -117,6 +205,7 @@ export default function Home() {
               image={autoImg}
               link="/auto"
             />
+
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
@@ -129,12 +218,32 @@ export default function Home() {
               />
             ))}
           </div>
+
+        </div>
+      </section>
+
+      {/* ORGANIZATION TRUST */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+
+          <h2 className="text-2xl font-semibold mb-6">
+            Built for Organizations That Cannot Afford Record Uncertainty
+          </h2>
+
+          <p className="text-slate-600">
+            From government agencies and real estate professionals to title
+            companies, legal teams, notaries, and automotive networks —
+            ProofDeed provides verifiable digital certification that protects
+            institutions and the public.
+          </p>
+
         </div>
       </section>
 
       {/* AFFILIATES */}
       <section className="bg-slate-100 py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
+
           <h2 className="text-2xl font-semibold mb-6">
             Affiliate Program
           </h2>
@@ -150,30 +259,13 @@ export default function Home() {
           >
             Become a Partner
           </Link>
+
         </div>
       </section>
 
       <Footer />
     </div>
   );
-}
-
-type StepProps = {
-  title: string;
-  desc: string;
-};
-
-function Step({ title, desc }: StepProps) {
-  return (
-    <div className="border border-slate-200 rounded-lg p-6 w-56 bg-white shadow-sm">
-      <div className="font-semibold mb-1">{title}</div>
-      <div className="text-sm text-slate-500">{desc}</div>
-    </div>
-  );
-}
-
-function Arrow() {
-  return <div className="text-2xl text-slate-400 hidden md:block">→</div>;
 }
 
 type IndustryProps = {
@@ -210,6 +302,44 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
           Learn More
         </Link>
       </div>
+    </div>
+  );
+}
+
+type ProcessProps = {
+  number: string;
+  title: string;
+  desc: string;
+};
+
+function ProcessBox({ number, title, desc }: ProcessProps) {
+  return (
+    <div className="bg-gradient-to-br from-purple-700 to-purple-900 text-white rounded-xl p-8 shadow-lg">
+      <div className="text-purple-200 text-sm font-semibold mb-2">
+        {number}
+      </div>
+
+      <h3 className="text-lg font-semibold mb-3">
+        {title}
+      </h3>
+
+      <p className="text-purple-100 text-sm">
+        {desc}
+      </p>
+    </div>
+  );
+}
+
+type TrustProps = {
+  title: string;
+  desc: string;
+};
+
+function TrustItem({ title, desc }: TrustProps) {
+  return (
+    <div>
+      <h3 className="font-semibold mb-2">{title}</h3>
+      <p className="text-slate-600 text-sm">{desc}</p>
     </div>
   );
 }

@@ -28,3 +28,4 @@ function IndustryCard({ title, desc, image, link }: IndustryProps) {
     </div>
   );
 }
+export default Home;

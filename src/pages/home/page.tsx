@@ -29,174 +29,94 @@ export default function Home() {
 
       {/* HERO */}
 
-      <section className="pt-28 pb-16">
+      <section className="pt-24 pb-16">
 
         <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h1 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-semibold text-slate-900">
             If It Can Be Disputed, It Hasn't Been Certified.
           </h1>
-
-          <p className="text-sm text-slate-600 mt-6 max-w-3xl mx-auto leading-relaxed">
-
-            Forged titles. Altered contracts. Disputed records. These aren't edge
-            cases — they're daily realities for government agencies, legal
-            professionals, and automotive networks.
-
-          </p>
-
-          <p className="text-sm text-slate-600 mt-4 max-w-3xl mx-auto leading-relaxed">
-
-            ProofDeed generates a cryptographic fingerprint of any document,
-            anchors it permanently to the Polygon blockchain, and issues a
-            tamper-evident certificate that anyone can independently verify —
-            without ever storing your original file.
-
-          </p>
 
         </div>
 
       </section>
 
 
-      {/* INFORMATION GRID */}
+      {/* PROCESS + MESSAGE */}
 
       <section className="pb-24">
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
 
-          {/* HOW IT WORKS */}
+          {/* LEFT PROCESS BOX */}
 
-          <InfoBox
-            title="How Certification Works"
-            icon="🔐"
-            gradient="from-purple-600 via-purple-500 to-indigo-500"
-          >
+          <div className="bg-slate-100 rounded-xl p-8 shadow-sm">
 
-            <div className="flex items-center gap-4 text-xs flex-wrap">
+            <h3 className="text-lg font-semibold mb-6 text-slate-800">
+              How Certification Works
+            </h3>
 
-              <MiniStep
-                number="1"
-                title="SHA-256 Fingerprint"
-                desc="Cryptographic hash created from vehicle record"
-              />
+            <ProcessStep
+              number="1"
+              title="SHA-256 Fingerprint"
+              desc="Cryptographic hash created from vehicle record"
+            />
 
-              <Arrow/>
+            <Arrow/>
 
-              <MiniStep
-                number="2"
-                title="Timestamping"
-                desc="Precise timestamp recorded at moment of certification"
-              />
+            <ProcessStep
+              number="2"
+              title="Timestamping"
+              desc="Precise timestamp recorded at moment of certification"
+            />
 
-              <Arrow/>
+            <Arrow/>
 
-              <MiniStep
-                number="3"
-                title="Blockchain Anchoring"
-                desc="Hash anchored to public blockchain for immutability"
-              />
+            <ProcessStep
+              number="3"
+              title="Blockchain Anchoring"
+              desc="Hash anchored to public blockchain for immutability"
+            />
 
-              <Arrow/>
+            <Arrow/>
 
-              <MiniStep
-                number="4"
-                title="Verification ID"
-                desc="Independent verification without document storage"
-              />
+            <ProcessStep
+              number="4"
+              title="Verification ID"
+              desc="Independent verification without document storage"
+            />
 
-            </div>
-
-          </InfoBox>
+          </div>
 
 
 
-          {/* WHAT PROOFDEED DOES */}
+          {/* RIGHT MESSAGE BOX */}
 
-          <InfoBox
-            title="Tamper-Evident Certification"
-            icon="🧾"
-            gradient="from-indigo-600 via-purple-500 to-purple-600"
-          >
+          <div className="bg-slate-100 rounded-xl p-8 shadow-sm">
 
-            <p className="text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold mb-6 text-slate-800">
+              Tamper-Evident Certification
+            </h3>
 
-              Secure digital certification for government records, legal
-              documents, real estate transactions and vehicle transfers.
+            <p className="text-sm text-slate-700 leading-relaxed">
+
+              Forged titles. Altered contracts. Disputed records. These aren't
+              edge cases — they're daily realities for government agencies,
+              legal professionals, and automotive networks.
 
             </p>
 
-            <p className="text-sm leading-relaxed mt-4">
+            <p className="text-sm text-slate-700 leading-relaxed mt-6">
 
-              Every certification creates a cryptographic fingerprint anchored
-              to an immutable blockchain timestamp — allowing anyone to verify
-              authenticity without storing the original document.
-
-            </p>
-
-          </InfoBox>
-
-
-
-          {/* WHY ORGANIZATIONS TRUST */}
-
-          <InfoBox
-            title="Why Organizations Trust ProofDeed"
-            icon="🛡"
-            gradient="from-purple-600 via-indigo-500 to-blue-600"
-          >
-
-            <ul className="text-sm space-y-4">
-
-              <li>
-                <b>SHA-256 Cryptographic Certification</b><br/>
-                Industry-standard hashing ensures document integrity and
-                tamper-evident verification.
-              </li>
-
-              <li>
-                <b>Multi-Layer Identity Validation</b><br/>
-                Verification protocols protect against fraud and ensure
-                authentic record creation.
-              </li>
-
-              <li>
-                <b>Complete Audit Logging</b><br/>
-                Timestamp and IP tracking provide full accountability.
-              </li>
-
-            </ul>
-
-          </InfoBox>
-
-
-
-          {/* NO DOCUMENT STORAGE */}
-
-          <InfoBox
-            title="No Document Storage"
-            icon="🏛"
-            gradient="from-blue-600 via-purple-500 to-indigo-600"
-          >
-
-            <p className="text-sm leading-relaxed">
-
-              ProofDeed generates cryptographic proof only. Original documents
-              remain under your control.
+              ProofDeed generates a cryptographic fingerprint of any document,
+              anchors it permanently to the Polygon blockchain, and issues a
+              tamper-evident certificate that anyone can independently verify —
+              without ever storing your original file.
 
             </p>
 
-            <p className="text-sm leading-relaxed mt-4">
-
-              Anyone with the verification ID can independently confirm the
-              integrity of the record without accessing or storing the
-              underlying document.
-
-            </p>
-
-          </InfoBox>
-
+          </div>
 
         </div>
 
@@ -204,7 +124,7 @@ export default function Home() {
 
 
 
-      {/* INDUSTRY VERTICALS */}
+      {/* INDUSTRY CARDS */}
 
       <section className="pb-28">
 
@@ -264,13 +184,13 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white p-12 text-center shadow-xl">
+          <div className="bg-slate-100 rounded-xl p-12 text-center shadow-sm">
 
-            <h2 className="text-xl font-semibold mb-4">
+            <h2 className="text-xl font-semibold mb-4 text-slate-900">
               Affiliate Program
             </h2>
 
-            <p className="text-sm opacity-90 mb-8">
+            <p className="text-sm text-slate-600 mb-8">
 
               Revenue partnerships and API integrations for organizations
               introducing ProofDeed certification infrastructure.
@@ -279,7 +199,7 @@ export default function Home() {
 
             <Link
               to="/affiliates"
-              className="bg-white text-purple-700 px-6 py-3 rounded-md text-sm font-semibold"
+              className="bg-slate-900 text-white px-6 py-3 rounded-md text-sm font-semibold"
             >
               Become a Partner
             </Link>
@@ -302,38 +222,23 @@ export default function Home() {
 
 
 
-function InfoBox({title, icon, gradient, children}){
+function ProcessStep({number,title,desc}){
 
   return(
 
-    <div className={`rounded-xl p-8 border border-white/30 bg-gradient-to-br ${gradient} text-white shadow-lg backdrop-blur-md hover:scale-[1.02] hover:shadow-2xl transition-all duration-300`}>
+    <div className="bg-white rounded-lg p-4 shadow-sm">
 
-      <div className="flex items-center gap-2 mb-6 text-lg font-semibold">
-
-        <span>{icon}</span>
-        {title}
-
+      <div className="text-xs font-bold text-slate-500">
+        {number}
       </div>
 
-      {children}
+      <div className="text-sm font-semibold text-slate-800">
+        {title}
+      </div>
 
-    </div>
-
-  )
-
-}
-
-
-
-function MiniStep({number,title,desc}){
-
-  return(
-
-    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-md p-4 text-center min-w-[140px]">
-
-      <div className="text-xs font-bold mb-1">{number}</div>
-      <div className="text-sm font-semibold">{title}</div>
-      <div className="text-xs opacity-80 mt-1">{desc}</div>
+      <div className="text-xs text-slate-500 mt-1">
+        {desc}
+      </div>
 
     </div>
 
@@ -344,7 +249,11 @@ function MiniStep({number,title,desc}){
 
 
 function Arrow(){
-  return <div className="text-lg opacity-80">→</div>
+  return (
+    <div className="flex justify-center py-3 text-slate-400">
+      ↓
+    </div>
+  )
 }
 
 

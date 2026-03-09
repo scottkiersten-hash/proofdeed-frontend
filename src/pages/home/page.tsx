@@ -31,141 +31,102 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="pt-24 pb-14">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+      <section className="pt-24 pb-10">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h1 className="text-3xl md:text-4xl font-semibold text-purple-700">
             A New Standard for Record Verification
           </h1>
-
-          <p className="text-slate-600 mt-6 text-lg">
-            Secure digital certification for government records, legal documents,
-            real estate transactions and vehicle transfers.
-          </p>
-
-          <p className="text-slate-500 mt-4 text-base">
-            Every certification creates a{" "}
-            <b>
-              cryptographic fingerprint anchored to an immutable blockchain
-              timestamp
-            </b>
-            , allowing anyone to independently verify authenticity without
-            storing the original document.
-          </p>
         </div>
       </section>
 
-      {/* PURPLE INFORMATION GRID */}
-      <section className="pb-28">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* INFO GRID */}
+      <section className="pb-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
-          <h2 className="text-3xl font-semibold text-center mb-16 text-purple-700">
-            Blockchain-Anchored Certification
-          </h2>
+          {/* BOX 1 */}
+          <div className="bg-gradient-to-br from-purple-800 to-purple-700 text-white rounded-xl p-6 shadow">
+            <h3 className="text-sm font-semibold mb-4">
+              How It Works
+            </h3>
 
-          <div className="grid md:grid-cols-2 gap-10">
+            <div className="flex items-center gap-3 text-xs">
 
-            {/* BOX 1 */}
-            <div className="bg-gradient-to-br from-purple-800 to-purple-900 text-white rounded-xl p-10 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">
-                How It Works
-              </h3>
-
-              <div className="space-y-4 text-purple-100">
-
-                <p>
-                  <b>SHA-256 Fingerprint</b><br/>
-                  Cryptographic hash created from document contents
-                </p>
-
-                <p>
-                  <b>Timestamping</b><br/>
-                  Precise timestamp recorded at moment of certification
-                </p>
-
-                <p>
-                  <b>Blockchain Anchoring</b><br/>
-                  Hash anchored to public blockchain for immutability
-                </p>
-
-                <p>
-                  <b>Verification ID</b><br/>
-                  Independent verification without document storage
-                </p>
-
-                <p className="pt-4 text-purple-200">
-                  No document storage: ProofDeed generates cryptographic proof only.
-                  Original documents remain under your control.
-                </p>
-
-              </div>
-            </div>
-
-            {/* BOX 2 */}
-            <div className="bg-gradient-to-br from-purple-700 to-purple-800 text-white rounded-xl p-10 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">
-                If It Can Be Disputed, It Hasn't Been Certified
-              </h3>
-
-              <p className="text-purple-100 mb-4">
-                Forged titles. Altered contracts. Disputed records.
-                These aren't edge cases — they're daily realities for
-                government agencies, legal professionals, and automotive networks.
-              </p>
-
-              <p className="text-purple-100">
-                ProofDeed generates a cryptographic fingerprint of any document,
-                anchors it permanently to the Polygon blockchain, and issues a
-                tamper-evident certificate that anyone can independently verify —
-                without ever storing your original file.
-              </p>
+              <MiniStep title="SHA-256" desc="Cryptographic fingerprint" />
+              <Arrow />
+              <MiniStep title="Timestamp" desc="Certification moment" />
+              <Arrow />
+              <MiniStep title="Blockchain" desc="Polygon anchor" />
+              <Arrow />
+              <MiniStep title="Verify ID" desc="Independent validation" />
 
             </div>
+          </div>
 
-            {/* BOX 3 */}
-            <div className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-xl p-10 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">
-                Why Organizations Trust ProofDeed
-              </h3>
+          {/* BOX 2 */}
+          <div className="bg-white border border-purple-200 text-purple-800 rounded-xl p-6 shadow">
+            <h3 className="text-sm font-semibold mb-3">
+              Secure Digital Certification
+            </h3>
 
-              <div className="space-y-4 text-purple-100">
+            <p className="text-xs leading-relaxed">
+              Secure digital certification for government records, legal
+              documents, real estate transactions and vehicle transfers.
+            </p>
 
-                <p>
-                  <b>SHA-256 Cryptographic Certification</b><br/>
-                  Industry-standard cryptographic hashing ensures document integrity
-                  and tamper-evident verification.
-                </p>
+            <p className="text-xs leading-relaxed mt-3">
+              Every certification creates a cryptographic fingerprint anchored
+              to an immutable blockchain timestamp, allowing anyone to
+              independently verify authenticity without storing the original
+              document.
+            </p>
+          </div>
 
-                <p>
-                  <b>Multi-Layer Identity Validation</b><br/>
-                  Comprehensive verification protocols protect against fraud
-                  and ensure authentic record creation.
-                </p>
+          {/* BOX 3 */}
+          <div className="bg-white border border-purple-200 text-purple-800 rounded-xl p-6 shadow">
+            <h3 className="text-sm font-semibold mb-3">
+              Why Organizations Trust ProofDeed
+            </h3>
 
-                <p>
-                  <b>Complete Audit Logging</b><br/>
-                  Every action is logged with timestamps and IP tracking
-                  for full compliance and accountability.
-                </p>
+            <ul className="text-xs space-y-3">
 
-              </div>
-            </div>
+              <li>
+                <b>SHA-256 Cryptographic Certification</b><br/>
+                Industry-standard hashing ensures tamper-evident verification.
+              </li>
 
-            {/* BOX 4 */}
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl p-10 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">
-                Built for Organizations That Cannot Afford Record Uncertainty
-              </h3>
+              <li>
+                <b>Multi-Layer Identity Validation</b><br/>
+                Verification protocols protect against fraud.
+              </li>
 
-              <p className="text-purple-100">
-                From government agencies and real estate professionals to title
-                companies, legal teams, notaries, and automotive networks —
-                ProofDeed provides verifiable digital certification that protects
-                institutions and the public.
-              </p>
+              <li>
+                <b>Complete Audit Logging</b><br/>
+                Timestamp and IP logging for compliance.
+              </li>
 
-            </div>
+            </ul>
+          </div>
+
+          {/* BOX 4 */}
+          <div className="bg-gradient-to-br from-purple-600 to-purple-500 text-white rounded-xl p-6 shadow">
+            <h3 className="text-sm font-semibold mb-3">
+              Built for Organizations That Cannot Afford Record Uncertainty
+            </h3>
+
+            <p className="text-xs leading-relaxed mb-3">
+              From government agencies and real estate professionals to title
+              companies, legal teams, notaries and automotive networks —
+              ProofDeed provides verifiable digital certification that protects
+              institutions and the public.
+            </p>
+
+            <p className="text-xs text-purple-100">
+              No document storage: ProofDeed generates cryptographic proof
+              only. Original documents remain under your control.
+            </p>
 
           </div>
+
         </div>
       </section>
 
@@ -191,6 +152,7 @@ export default function Home() {
             id="industry-scroll"
             className="flex gap-12 overflow-x-hidden scroll-smooth"
           >
+
             <IndustryCard
               title="Government"
               desc="Public record integrity and fraud prevention infrastructure."
@@ -211,10 +173,11 @@ export default function Home() {
               image={autoImg}
               link="/auto"
             />
+
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {[0, 1, 2].map((i) => (
+            {[0,1,2].map((i) => (
               <div
                 key={i}
                 className={`w-2 h-2 rounded-full ${
@@ -223,6 +186,7 @@ export default function Home() {
               />
             ))}
           </div>
+
         </div>
       </section>
 
@@ -230,18 +194,18 @@ export default function Home() {
       <section className="bg-slate-100 py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h2 className="text-2xl font-semibold mb-6">
+          <h2 className="text-xl font-semibold mb-6">
             Affiliate Program
           </h2>
 
-          <p className="text-slate-600 mb-10">
+          <p className="text-slate-600 mb-8 text-sm">
             Revenue partnerships and API integrations for organizations
             introducing ProofDeed certification infrastructure.
           </p>
 
           <Link
             to="/affiliates"
-            className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold"
+            className="bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-semibold"
           >
             Become a Partner
           </Link>
@@ -254,14 +218,20 @@ export default function Home() {
   );
 }
 
-type IndustryProps = {
-  title: string;
-  desc: string;
-  image: string;
-  link: string;
-};
+function MiniStep({ title, desc }) {
+  return (
+    <div className="bg-white/20 rounded p-2 text-center min-w-[70px]">
+      <div className="text-[10px] font-semibold">{title}</div>
+      <div className="text-[9px] opacity-80">{desc}</div>
+    </div>
+  );
+}
 
-function IndustryCard({ title, desc, image, link }: IndustryProps) {
+function Arrow() {
+  return <div className="text-xs opacity-70">→</div>;
+}
+
+function IndustryCard({ title, desc, image, link }) {
   return (
     <div className="relative min-w-[900px] h-[560px] rounded-2xl overflow-hidden shadow-lg">
       <img

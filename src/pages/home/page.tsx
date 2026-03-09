@@ -29,87 +29,117 @@ export default function Home() {
 
       {/* HERO */}
 
-      <section className="pt-28 pb-16 relative">
+      <section className="pt-28 pb-16">
 
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100 opacity-60"/>
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h1 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            A New Standard for Record Verification
+            If It Can Be Disputed, It Hasn't Been Certified.
           </h1>
 
-          <p className="mt-4 text-xs uppercase tracking-wider text-slate-500">
-            Blockchain-Anchored Document Certification
+          <p className="text-sm text-slate-600 mt-6 max-w-3xl mx-auto leading-relaxed">
+
+            Forged titles. Altered contracts. Disputed records. These aren't edge
+            cases — they're daily realities for government agencies, legal
+            professionals, and automotive networks.
+
           </p>
 
-          {/* TRUST CHIPS */}
+          <p className="text-sm text-slate-600 mt-4 max-w-3xl mx-auto leading-relaxed">
 
-          <div className="flex justify-center gap-3 mt-8 flex-wrap">
+            ProofDeed generates a cryptographic fingerprint of any document,
+            anchors it permanently to the Polygon blockchain, and issues a
+            tamper-evident certificate that anyone can independently verify —
+            without ever storing your original file.
 
-            <Chip label="SHA-256 Cryptography"/>
-            <Chip label="Polygon Blockchain"/>
-            <Chip label="Immutable Timestamp"/>
-            <Chip label="Independent Verification"/>
-
-          </div>
+          </p>
 
         </div>
 
       </section>
 
 
-      {/* INFO GRID */}
+      {/* INFORMATION GRID */}
 
       <section className="pb-24">
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
+
+          {/* HOW IT WORKS */}
+
           <InfoBox
-            title="How It Works"
+            title="How Certification Works"
             icon="🔐"
             gradient="from-purple-600 via-purple-500 to-indigo-500"
           >
 
-            <div className="flex items-center gap-3 text-xs">
+            <div className="flex items-center gap-4 text-xs flex-wrap">
 
-              <MiniStep number="1" title="SHA-256" desc="Fingerprint"/>
+              <MiniStep
+                number="1"
+                title="SHA-256 Fingerprint"
+                desc="Cryptographic hash created from vehicle record"
+              />
+
               <Arrow/>
-              <MiniStep number="2" title="Timestamp" desc="Certification"/>
+
+              <MiniStep
+                number="2"
+                title="Timestamping"
+                desc="Precise timestamp recorded at moment of certification"
+              />
+
               <Arrow/>
-              <MiniStep number="3" title="Blockchain" desc="Polygon"/>
+
+              <MiniStep
+                number="3"
+                title="Blockchain Anchoring"
+                desc="Hash anchored to public blockchain for immutability"
+              />
+
               <Arrow/>
-              <MiniStep number="4" title="Verify ID" desc="Validation"/>
+
+              <MiniStep
+                number="4"
+                title="Verification ID"
+                desc="Independent verification without document storage"
+              />
 
             </div>
 
           </InfoBox>
 
 
+
+          {/* WHAT PROOFDEED DOES */}
+
           <InfoBox
-            title="Secure Digital Certification"
+            title="Tamper-Evident Certification"
             icon="🧾"
             gradient="from-indigo-600 via-purple-500 to-purple-600"
           >
 
-            <p className="text-xs leading-relaxed">
+            <p className="text-sm leading-relaxed">
 
               Secure digital certification for government records, legal
               documents, real estate transactions and vehicle transfers.
 
             </p>
 
-            <p className="text-xs leading-relaxed mt-3">
+            <p className="text-sm leading-relaxed mt-4">
 
               Every certification creates a cryptographic fingerprint anchored
-              to an immutable blockchain timestamp, allowing anyone to
-              independently verify authenticity without storing the original
-              document.
+              to an immutable blockchain timestamp — allowing anyone to verify
+              authenticity without storing the original document.
 
             </p>
 
           </InfoBox>
 
+
+
+          {/* WHY ORGANIZATIONS TRUST */}
 
           <InfoBox
             title="Why Organizations Trust ProofDeed"
@@ -117,21 +147,23 @@ export default function Home() {
             gradient="from-purple-600 via-indigo-500 to-blue-600"
           >
 
-            <ul className="text-xs space-y-3">
+            <ul className="text-sm space-y-4">
 
               <li>
                 <b>SHA-256 Cryptographic Certification</b><br/>
-                Industry-standard hashing ensures tamper-evident verification.
+                Industry-standard hashing ensures document integrity and
+                tamper-evident verification.
               </li>
 
               <li>
                 <b>Multi-Layer Identity Validation</b><br/>
-                Verification protocols protect against fraud.
+                Verification protocols protect against fraud and ensure
+                authentic record creation.
               </li>
 
               <li>
                 <b>Complete Audit Logging</b><br/>
-                Timestamp and IP logging for compliance.
+                Timestamp and IP tracking provide full accountability.
               </li>
 
             </ul>
@@ -139,46 +171,42 @@ export default function Home() {
           </InfoBox>
 
 
+
+          {/* NO DOCUMENT STORAGE */}
+
           <InfoBox
-            title="Built for Organizations That Cannot Afford Record Uncertainty"
+            title="No Document Storage"
             icon="🏛"
             gradient="from-blue-600 via-purple-500 to-indigo-600"
           >
 
-            <p className="text-xs leading-relaxed mb-3">
+            <p className="text-sm leading-relaxed">
 
-              From government agencies and real estate professionals to title
-              companies, legal teams, notaries and automotive networks —
-              ProofDeed provides verifiable digital certification that protects
-              institutions and the public.
+              ProofDeed generates cryptographic proof only. Original documents
+              remain under your control.
 
             </p>
 
-            <p className="text-xs text-purple-100">
+            <p className="text-sm leading-relaxed mt-4">
 
-              No document storage: ProofDeed generates cryptographic proof only.
-              Original documents remain under your control.
+              Anyone with the verification ID can independently confirm the
+              integrity of the record without accessing or storing the
+              underlying document.
 
             </p>
 
           </InfoBox>
+
 
         </div>
 
       </section>
 
 
-      {/* INDUSTRY SECTION */}
+
+      {/* INDUSTRY VERTICALS */}
 
       <section className="pb-28">
-
-        <div className="max-w-6xl mx-auto px-6 mb-10 text-center">
-
-          <h2 className="text-lg font-semibold text-slate-700">
-            Certification Infrastructure for Critical Records
-          </h2>
-
-        </div>
 
         <div className="relative max-w-[1600px] mx-auto px-6">
 
@@ -229,7 +257,8 @@ export default function Home() {
       </section>
 
 
-      {/* AFFILIATE CTA */}
+
+      {/* AFFILIATE */}
 
       <section className="py-20">
 
@@ -268,27 +297,18 @@ export default function Home() {
 }
 
 
+
 /* COMPONENTS */
 
-
-function Chip({label}){
-
-  return(
-    <div className="px-3 py-1 text-xs bg-white border border-slate-200 rounded-full shadow-sm">
-      {label}
-    </div>
-  )
-
-}
 
 
 function InfoBox({title, icon, gradient, children}){
 
   return(
 
-    <div className={`rounded-xl p-6 border border-white/30 bg-gradient-to-br ${gradient} text-white shadow-lg backdrop-blur-md hover:scale-[1.02] hover:shadow-2xl transition-all duration-300`}>
+    <div className={`rounded-xl p-8 border border-white/30 bg-gradient-to-br ${gradient} text-white shadow-lg backdrop-blur-md hover:scale-[1.02] hover:shadow-2xl transition-all duration-300`}>
 
-      <div className="flex items-center gap-2 mb-4 text-sm font-semibold">
+      <div className="flex items-center gap-2 mb-6 text-lg font-semibold">
 
         <span>{icon}</span>
         {title}
@@ -304,15 +324,16 @@ function InfoBox({title, icon, gradient, children}){
 }
 
 
+
 function MiniStep({number,title,desc}){
 
   return(
 
-    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-md p-2 text-center min-w-[80px]">
+    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-md p-4 text-center min-w-[140px]">
 
-      <div className="text-[10px] font-bold">{number}</div>
-      <div className="text-[10px] font-semibold">{title}</div>
-      <div className="text-[9px] opacity-80">{desc}</div>
+      <div className="text-xs font-bold mb-1">{number}</div>
+      <div className="text-sm font-semibold">{title}</div>
+      <div className="text-xs opacity-80 mt-1">{desc}</div>
 
     </div>
 
@@ -321,11 +342,11 @@ function MiniStep({number,title,desc}){
 }
 
 
+
 function Arrow(){
-
-  return <div className="text-xs opacity-80">→</div>
-
+  return <div className="text-lg opacity-80">→</div>
 }
+
 
 
 function IndustryCard({title,desc,image,link}){

@@ -12,26 +12,41 @@ export default function Document() {
     "institutional": "Custom"
   };
 
-  function goToCheckout() {
-
-    if (plan === "starter-monthly") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_STARTER_MONTHLY";
-    }
-
-    if (plan === "starter-annual") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_STARTER_YEARLY";
-    }
-
-    if (plan === "pro-monthly") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_PRO_MONTHLY";
-    }
-
-    if (plan === "pro-annual") {
-      window.location.href = "/api/create-checkout-session?price=PRICE_PRO_YEARLY";
-    }
+  async function goToCheckout() {
 
     if (plan === "institutional") {
       window.location.href = "/contact";
+      return;
+    }
+
+    try {
+
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          plan: plan,
+          vertical: "document",
+          successUrl: window.location.origin + "/certify",
+          cancelUrl: window.location.href
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Stripe checkout failed");
+      }
+
+    } catch (err) {
+
+      console.error(err);
+      alert("Network error");
+
     }
 
   }
@@ -58,52 +73,6 @@ export default function Document() {
             Protect contracts, legal records, and institutional documentation
             with tamper-proof cryptographic certification and independent verification.
           </p>
-
-          <div className="mt-12 grid grid-cols-2 gap-8 text-sm">
-
-            <div>
-              <div className="font-medium text-slate-900">Law Firms</div>
-              <p className="text-slate-600 mt-1">
-                Secure contracts, filings, and evidentiary records with independent timestamp certification.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-medium text-slate-900">Title & Escrow</div>
-              <p className="text-slate-600 mt-1">
-                Protect title documents, closing statements, and escrow records from tampering.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-medium text-slate-900">Mortgage & Lending</div>
-              <p className="text-slate-600 mt-1">
-                Certify loan documents, disclosures, and underwriting records.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-medium text-slate-900">Private Agreements</div>
-              <p className="text-slate-600 mt-1">
-                Provide independent verification for private contracts and agreements.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-medium text-slate-900">Homeowners</div>
-              <p className="text-slate-600 mt-1">
-                Protect property records, renovation contracts, and ownership documents.
-              </p>
-            </div>
-
-            <div>
-              <div className="font-medium text-slate-900">Institutional Records</div>
-              <p className="text-slate-600 mt-1">
-                Maintain long-term certified archives for institutional documentation.
-              </p>
-            </div>
-
-          </div>
 
         </div>
 
@@ -186,6 +155,7 @@ export default function Document() {
     </section>
 
   );
+
 }
 
 

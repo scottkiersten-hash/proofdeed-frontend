@@ -6,7 +6,7 @@ import Footer from '../../components/feature/Footer';
 
 export default function Verify() {
   const navigate = useNavigate();
-  const { id } = useParams();
+ const { id } = useParams<{ id: string }>();
 
   const [verificationId, setVerificationId] = useState('');
   const [sha256Hash, setSha256Hash] = useState('');

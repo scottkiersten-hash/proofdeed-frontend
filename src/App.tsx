@@ -10,10 +10,6 @@ import Dashboard from "./pages/Dashboard";
 import Success from "./pages/Success";
 import Registry from "./pages/registry/Registry";
 
-/* ===========================
-SCROLL TO TOP ON ROUTE CHANGE
-=========================== */
-
 function ScrollToTop() {
 const { pathname } = useLocation();
 
@@ -24,33 +20,23 @@ window.scrollTo(0, 0);
 return null;
 }
 
-/* ===========================
-APP
-=========================== */
-
 function App() {
 return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}> <ScrollToTop />
 
 ```
     <Routes>
-
-      {/* Main Site Routes */}
       <Route path="/*" element={<AppRoutes />} />
 
-      {/* Authentication */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
 
-      {/* Stripe success page */}
       <Route path="/success" element={<Success />} />
 
-      {/* Public registry */}
       <Route path="/registry" element={<Registry />} />
-
     </Routes>
+
   </BrowserRouter>
 </I18nextProvider>
 ```

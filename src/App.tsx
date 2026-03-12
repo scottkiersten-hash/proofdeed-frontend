@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 

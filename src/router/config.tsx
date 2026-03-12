@@ -41,7 +41,8 @@ const routes: RouteObject[] = [
   /* CORE */
   { path: "/", element: <Home /> },
   { path: "/upload", element: <Upload /> },
-  { path: "/verify", element: <Verify /> },
+ { path: "/verify", element: <Verify /> },
+{ path: "/verify/:certId", element: <Verify /> },
   { path: "/success", element: <Success /> },
 
   /* INFORMATION */

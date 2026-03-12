@@ -1,3 +1,4 @@
+import CertificateQR from "../../components/CertificateQR";
 ```tsx
 import { useState, FormEvent, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

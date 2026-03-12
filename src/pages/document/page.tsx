@@ -12,6 +12,13 @@ export default function Document() {
     "institutional": "Custom"
   };
 
+  const priceIds = {
+    "starter-monthly": "PRICE_STARTER_MONTHLY",
+    "starter-annual": "PRICE_STARTER_YEARLY",
+    "pro-monthly": "PRICE_PRO_MONTHLY",
+    "pro-annual": "PRICE_PRO_YEARLY"
+  };
+
   async function goToCheckout() {
 
     if (plan === "institutional") {
@@ -27,10 +34,7 @@ export default function Document() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          plan: plan,
-          vertical: "document",
-          successUrl: window.location.origin + "/certify",
-          cancelUrl: window.location.href
+          priceId: priceIds[plan]
         })
       });
 
@@ -130,8 +134,6 @@ export default function Document() {
 
           </div>
 
-
-          {/* Bottom price block */}
 
           <div className="mt-10 flex items-center justify-between border-t pt-6">
 

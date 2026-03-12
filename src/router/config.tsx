@@ -1,4 +1,3 @@
-import React from "react";
 import type { RouteObject } from "react-router-dom";
 
 import Success from "../pages/Success";
@@ -38,42 +37,58 @@ import TechnicalProcess from "../pages/technical-process/page";
 import Signup from "../pages/Signup";
 
 const routes: RouteObject[] = [
+
+  /* CORE */
   { path: "/", element: <Home /> },
   { path: "/upload", element: <Upload /> },
+  { path: "/verify", element: <Verify /> },
+  { path: "/success", element: <Success /> },
+
+  /* INFORMATION */
   { path: "/about", element: <About /> },
   { path: "/privacy", element: <Privacy /> },
   { path: "/terms", element: <Terms /> },
-  { path: "/verify", element: <Verify /> },
+  { path: "/faq", element: <FAQ /> },
   { path: "/how-it-works", element: <HowItWorks /> },
   { path: "/blockchain", element: <Blockchain /> },
-  { path: "/faq", element: <FAQ /> },
 
+  /* INDUSTRIES */
+
+  /* DOCUMENT / INSTITUTIONAL */
   { path: "/document", element: <Document /> },
   { path: "/document/intake", element: <DocumentIntake /> },
 
+  /* AUTOMOTIVE */
   { path: "/auto", element: <Auto /> },
   { path: "/auto/intake", element: <AutoIntake /> },
 
+  /* GOVERNMENT */
   { path: "/government", element: <Government /> },
   { path: "/government/use-cases", element: <GovernmentUseCases /> },
   { path: "/government/security", element: <GovernmentSecurity /> },
 
-  { path: "/affiliates", element: <Affiliates /> },
-  { path: "/procurement", element: <Procurement /> },
-  { path: "/contact", element: <Contact /> },
-  { path: "/inquiry", element: <Inquiry /> },
-  { path: "/technical-package", element: <TechnicalPackage /> },
-  { path: "/rfp-framework", element: <RfpFramework /> },
-
+  /* CERTIFICATES */
   { path: "/certificate/document", element: <DocumentCertificate /> },
   { path: "/certificate/automotive", element: <AutomotiveCertificate /> },
   { path: "/certificate/government", element: <GovernmentCertificate /> },
 
-  { path: "/technical-process", element: <TechnicalProcess /> },
-  { path: "/signup", element: <Signup /> },
-  { path: "/success", element: <Success /> },
+  /* BUSINESS */
+  { path: "/affiliates", element: <Affiliates /> },
+  { path: "/procurement", element: <Procurement /> },
+  { path: "/contact", element: <Contact /> },
+  { path: "/inquiry", element: <Inquiry /> },
 
-  { path: "*", element: <NotFound /> },
+  /* ENTERPRISE */
+  { path: "/technical-package", element: <TechnicalPackage /> },
+  { path: "/rfp-framework", element: <RfpFramework /> },
+  { path: "/technical-process", element: <TechnicalProcess /> },
+
+  /* AUTH */
+  { path: "/signup", element: <Signup /> },
+
+  /* FALLBACK */
+  { path: "*", element: <NotFound /> }
+
 ];
 
 export default routes;

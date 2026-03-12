@@ -36,20 +36,20 @@ return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}>
 
     <Routes>
 
-      {/* Existing Site Routes */}
+      {/* Main Site Routes */}
       <Route path="/*" element={<AppRoutes />} />
 
       {/* Auth Pages */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      {/* User Dashboard */}
+      {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
 
-      {/* Stripe Success Page */}
+      {/* Stripe Success */}
       <Route path="/success" element={<Success />} />
 
-      {/* Public Registry */}
+      {/* Public Certificate Registry */}
       <Route path="/registry" element={<Registry />} />
 
     </Routes>

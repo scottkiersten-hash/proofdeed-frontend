@@ -5,6 +5,7 @@ import Footer from '../../components/feature/Footer';
 
 export default function Verify() {
   const navigate = useNavigate();
+  const { id } = useParams(); // read ID from URL
 
   const [verificationId, setVerificationId] = useState('');
   const [sha256Hash, setSha256Hash] = useState('');
@@ -13,19 +14,21 @@ export default function Verify() {
   const [verificationResult, setVerificationResult] = useState<any>(null);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  // Auto-fill ID if user visits /verify/:id
+  useEffect(() => {
+    if (id) {
+      setVerificationId(id);
+      verifyCertificate(id);
+    }
+  }, [id]);
 
-    if (honeypot) return;
-
+  const verifyCertificate = async (certId: string) => {
     setIsVerifying(true);
     setError('');
     setVerificationResult(null);
 
     try {
-
-      const response = await fetch(`/api/verify/${verificationId}`);
-
+      const response = await fetch(`/api/verify/${certId}`);
       const data = await response.json();
 
       if (!data.success) {
@@ -34,11 +37,19 @@ export default function Verify() {
         setVerificationResult(data.certification);
       }
 
-    } catch (err) {
+    } catch {
       setError("Verification service unavailable.");
     }
 
     setIsVerifying(false);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (honeypot) return;
+
+    verifyCertificate(verificationId);
   };
 
   return (

@@ -166,6 +166,8 @@ export default function App() {
 
       <Routes>
 
+        <Route path="/" element={<Registry/>} />
+
         <Route path="/registry" element={<Registry/>} />
 
         <Route path="/verify/:certId" element={<Verify/>} />

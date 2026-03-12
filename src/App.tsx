@@ -29,31 +29,28 @@ APP
 =========================== */
 
 function App() {
-return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}>
+return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}> <ScrollToTop />
 
 ```
-    <ScrollToTop />
-
     <Routes>
 
       {/* Main Site Routes */}
       <Route path="/*" element={<AppRoutes />} />
 
-      {/* Auth Pages */}
+      {/* Authentication */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
       {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
 
-      {/* Stripe Success */}
+      {/* Stripe success page */}
       <Route path="/success" element={<Success />} />
 
-      {/* Public Certificate Registry */}
+      {/* Public registry */}
       <Route path="/registry" element={<Registry />} />
 
     </Routes>
-
   </BrowserRouter>
 </I18nextProvider>
 ```

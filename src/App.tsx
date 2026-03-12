@@ -1,8 +1,5 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppRoutes } from "./router";
-import { I18nextProvider } from "react-i18next";
-import i18n from "./i18n";
-import { useEffect } from "react";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -10,35 +7,23 @@ import Dashboard from "./pages/Dashboard";
 import Success from "./pages/Success";
 import Registry from "./pages/registry/Registry";
 
-function ScrollToTop() {
-const { pathname } = useLocation();
-
-useEffect(() => {
-window.scrollTo(0, 0);
-}, [pathname]);
-
-return null;
-}
-
 function App() {
-return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}> <ScrollToTop />
+return ( <BrowserRouter> <Routes>
 
 ```
-    <Routes>
-      <Route path="/*" element={<AppRoutes />} />
+    <Route path="/*" element={<AppRoutes />} />
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/dashboard" element={<Dashboard />} />
 
-      <Route path="/success" element={<Success />} />
+    <Route path="/success" element={<Success />} />
 
-      <Route path="/registry" element={<Registry />} />
-    </Routes>
+    <Route path="/registry" element={<Registry />} />
 
-  </BrowserRouter>
-</I18nextProvider>
+  </Routes>
+</BrowserRouter>
 ```
 
 );

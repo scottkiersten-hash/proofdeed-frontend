@@ -1,13 +1,13 @@
-import CertificateQR from "../../components/CertificateQR";
-```tsx
 import { useState, FormEvent, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import CertificateQR from "../../components/CertificateQR";
 
 export default function Verify() {
+
   const navigate = useNavigate();
- const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
 
   const [verificationId, setVerificationId] = useState('');
   const [sha256Hash, setSha256Hash] = useState('');
@@ -17,10 +17,12 @@ export default function Verify() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+
     if (id) {
       setVerificationId(id);
       verifyCertificate(id);
     }
+
   }, [id]);
 
   const verifyCertificate = async (certId: string) => {
@@ -57,6 +59,7 @@ export default function Verify() {
   };
 
   return (
+
     <div className="min-h-screen bg-white flex flex-col">
 
       <Header />
@@ -177,55 +180,42 @@ export default function Verify() {
               <div className="space-y-5">
 
                 <div>
-
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Certification ID
                   </p>
-
                   <p className="text-sm font-semibold text-slate-900">
                     {verificationResult.certification_id}
                   </p>
-
                 </div>
 
                 <div>
-
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Document SHA-256 Hash
                   </p>
-
                   <p className="text-sm font-mono break-all text-slate-900">
                     {verificationResult.hash}
                   </p>
-
                 </div>
 
                 <div>
-
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Timestamp
                   </p>
-
                   <p className="text-sm text-slate-900">
                     {new Date(verificationResult.created_at).toLocaleString()}
                   </p>
-
                 </div>
 
                 <div>
-
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Blockchain Network
                   </p>
-
                   <p className="text-sm text-slate-900">
                     Polygon
                   </p>
-
                 </div>
 
                 <div>
-
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Blockchain Transaction
                   </p>
@@ -261,6 +251,14 @@ export default function Verify() {
 
               </div>
 
+              <div className="mt-10 flex justify-center">
+
+                <CertificateQR
+                  certificationId={verificationResult.certification_id}
+                />
+
+              </div>
+
             </div>
 
           )}
@@ -274,4 +272,3 @@ export default function Verify() {
     </div>
   );
 }
-```

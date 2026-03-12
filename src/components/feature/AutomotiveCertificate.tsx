@@ -1,7 +1,34 @@
-export default function AutomotiveCertificate() {
+import CertificateQR from "../CertificateQR";
+
+interface AutomotiveCertificateProps {
+  vin: string;
+  titleNumber: string;
+  dealerId: string;
+  dealerLicense: string;
+  odometer: string;
+  transactionDate: string;
+  hash: string;
+  timestamp: string;
+  verificationId: string;
+}
+
+export default function AutomotiveCertificate({
+  vin,
+  titleNumber,
+  dealerId,
+  dealerLicense,
+  odometer,
+  transactionDate,
+  hash,
+  timestamp,
+  verificationId
+}: AutomotiveCertificateProps) {
+
+  const date = new Date(timestamp);
+
   return (
     <div className="w-full max-w-6xl mx-auto bg-gradient-to-b from-slate-900 to-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-      
+
       {/* Automotive Header Band */}
       <div className="bg-amber-500 px-10 py-3">
         <div className="flex items-center justify-between">
@@ -30,7 +57,9 @@ export default function AutomotiveCertificate() {
 
       {/* VIN Display */}
       <div className="mx-12 mt-10 bg-slate-950 rounded-lg p-6 border border-slate-700">
+
         <div className="flex items-center justify-between mb-3">
+
           <p className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.2em]">
             Vehicle Identification Number (VIN)
           </p>
@@ -41,11 +70,13 @@ export default function AutomotiveCertificate() {
               VALIDATED
             </span>
           </div>
+
         </div>
 
         <p className="text-white text-3xl font-mono tracking-[0.2em] text-center py-3">
-          1HGBH41JXMN109186
+          {vin}
         </p>
+
       </div>
 
       {/* Vehicle & Title Status */}
@@ -53,6 +84,7 @@ export default function AutomotiveCertificate() {
 
         {/* Title Status */}
         <div className="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-lg p-6">
+
           <div className="flex items-center gap-4">
 
             <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
@@ -72,14 +104,17 @@ export default function AutomotiveCertificate() {
           </div>
 
           <div className="text-right">
+
             <p className="text-[11px] text-slate-400 uppercase tracking-wider">
               Title Number
             </p>
 
             <p className="text-white text-sm font-mono">
-              TN-2024-847291
+              {titleNumber}
             </p>
+
           </div>
+
         </div>
 
         {/* Dealership Information */}
@@ -101,7 +136,7 @@ export default function AutomotiveCertificate() {
               </p>
 
               <p className="text-white text-sm font-mono">
-                DLR-AUTO-2024-X8K9
+                {dealerId}
               </p>
             </div>
 
@@ -111,11 +146,12 @@ export default function AutomotiveCertificate() {
               </p>
 
               <p className="text-white text-sm font-mono">
-                DL-48291-CA
+                {dealerLicense}
               </p>
             </div>
 
           </div>
+
         </div>
 
         {/* Transfer Verification */}
@@ -141,7 +177,7 @@ export default function AutomotiveCertificate() {
               </p>
 
               <p className="text-white text-sm font-mono">
-                47,832 miles
+                {odometer}
               </p>
             </div>
 
@@ -151,11 +187,12 @@ export default function AutomotiveCertificate() {
               </p>
 
               <p className="text-white text-sm">
-                January 15, 2024
+                {transactionDate}
               </p>
             </div>
 
           </div>
+
         </div>
 
         {/* Cryptographic Proof */}
@@ -166,66 +203,75 @@ export default function AutomotiveCertificate() {
           </p>
 
           <p className="text-slate-300 text-sm font-mono break-all leading-relaxed">
-            b8c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4
+            {hash}
           </p>
+
         </div>
 
         {/* Timestamp & Blockchain */}
         <div className="grid grid-cols-2 gap-6">
 
           <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+
             <p className="text-[11px] text-slate-500 uppercase tracking-wider mb-1">
               Certification Time
             </p>
 
             <p className="text-white text-sm font-medium">
-              Jan 15, 2024
+              {date.toLocaleDateString()}
             </p>
 
             <p className="text-slate-400 text-xs">
-              09:45:22 UTC
+              {date.toLocaleTimeString()}
             </p>
+
           </div>
 
           <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+
             <p className="text-[11px] text-slate-500 uppercase tracking-wider mb-1">
               Blockchain Anchor
             </p>
 
             <p className="text-white text-xs font-mono">
-              Block #18,234,567
+              Polygon Network
             </p>
+
           </div>
 
         </div>
 
         {/* Verification ID */}
         <div className="border-t border-slate-700 pt-6">
+
           <p className="text-[11px] text-slate-500 uppercase tracking-wider mb-1">
             Verification ID
           </p>
 
           <p className="text-white text-sm font-mono tracking-wider">
-            VRF-AUTO-2024-M7N8P9
+            {verificationId}
           </p>
+
         </div>
 
         {/* QR */}
         <div className="flex justify-center pt-4">
-          <div className="bg-white p-4 rounded-lg">
-            <div className="w-24 h-24 bg-slate-900 rounded flex items-center justify-center">
-              <i className="ri-qr-code-line text-5xl text-white"></i>
-            </div>
-          </div>
+
+          <CertificateQR
+            certificationId={verificationId}
+          />
+
         </div>
 
       </div>
 
       {/* Footer */}
       <div className="bg-amber-500 px-12 py-5 text-center">
+
         <p className="text-slate-900 text-sm font-bold">
           Verify at ProofDeed.com/auto/verify
         </p>
+
       </div>
 
     </div>

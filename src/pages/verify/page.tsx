@@ -1,3 +1,4 @@
+```tsx
 import { useState, FormEvent, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/feature/Header';
@@ -5,7 +6,7 @@ import Footer from '../../components/feature/Footer';
 
 export default function Verify() {
   const navigate = useNavigate();
-  const { id } = useParams(); // read ID from URL
+  const { id } = useParams();
 
   const [verificationId, setVerificationId] = useState('');
   const [sha256Hash, setSha256Hash] = useState('');
@@ -14,7 +15,6 @@ export default function Verify() {
   const [verificationResult, setVerificationResult] = useState<any>(null);
   const [error, setError] = useState('');
 
-  // Auto-fill ID if user visits /verify/:id
   useEffect(() => {
     if (id) {
       setVerificationId(id);
@@ -23,11 +23,13 @@ export default function Verify() {
   }, [id]);
 
   const verifyCertificate = async (certId: string) => {
+
     setIsVerifying(true);
     setError('');
     setVerificationResult(null);
 
     try {
+
       const response = await fetch(`/api/verify/${certId}`);
       const data = await response.json();
 
@@ -45,6 +47,7 @@ export default function Verify() {
   };
 
   const handleSubmit = async (e: FormEvent) => {
+
     e.preventDefault();
 
     if (honeypot) return;
@@ -54,9 +57,11 @@ export default function Verify() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+
       <Header />
 
       <main className="flex-1 pt-32 pb-20 px-6">
+
         <div className="max-w-3xl mx-auto">
 
           <button
@@ -68,18 +73,23 @@ export default function Verify() {
           </button>
 
           <div className="text-center mb-12">
+
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Verify Certificate
             </h1>
+
             <p className="text-xl text-slate-600">
               Enter a ProofDeed Certification ID to independently verify document authenticity.
             </p>
+
           </div>
 
           <div className="bg-white border border-slate-200 rounded-xl p-8 md:p-12 mb-8">
+
             <form onSubmit={handleSubmit}>
 
               <div className="mb-6">
+
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
                   Certification ID
                 </label>
@@ -92,9 +102,11 @@ export default function Verify() {
                   className="w-full px-4 py-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600"
                   required
                 />
+
               </div>
 
               <div className="mb-6">
+
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
                   SHA-256 Hash (Optional)
                 </label>
@@ -106,6 +118,7 @@ export default function Verify() {
                   placeholder="Optional document hash"
                   className="w-full px-4 py-3 text-sm border border-slate-300 rounded-lg font-mono"
                 />
+
               </div>
 
               <input
@@ -125,61 +138,93 @@ export default function Verify() {
               </button>
 
             </form>
+
           </div>
 
           {error && (
+
             <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
               <p className="text-red-700">{error}</p>
             </div>
+
           )}
 
           {verificationResult && (
+
             <div className="bg-green-50 border border-green-200 rounded-xl p-8">
 
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <i className="ri-checkbox-circle-line text-2xl text-green-600"></i>
+              <div className="flex items-center gap-4 mb-8">
+
+                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                  <i className="ri-shield-check-line text-3xl text-green-600"></i>
                 </div>
+
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">
+
+                  <h3 className="text-2xl font-bold text-slate-900">
                     Certificate Verified
                   </h3>
+
                   <p className="text-sm text-slate-600">
-                    This certificate is authentic.
+                    This document record is cryptographically verified and anchored to blockchain.
                   </p>
+
                 </div>
+
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-5">
 
                 <div>
+
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Certification ID
                   </p>
-                  <p className="text-sm font-medium">
+
+                  <p className="text-sm font-semibold text-slate-900">
                     {verificationResult.certification_id}
                   </p>
+
                 </div>
 
                 <div>
+
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
-                    Document Hash
+                    Document SHA-256 Hash
                   </p>
-                  <p className="text-sm font-mono break-all">
+
+                  <p className="text-sm font-mono break-all text-slate-900">
                     {verificationResult.hash}
                   </p>
+
                 </div>
 
                 <div>
+
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Timestamp
                   </p>
-                  <p className="text-sm">
+
+                  <p className="text-sm text-slate-900">
                     {new Date(verificationResult.created_at).toLocaleString()}
                   </p>
+
                 </div>
 
                 <div>
+
+                  <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
+                    Blockchain Network
+                  </p>
+
+                  <p className="text-sm text-slate-900">
+                    Polygon
+                  </p>
+
+                </div>
+
+                <div>
+
                   <p className="text-xs font-semibold text-slate-500 uppercase mb-1">
                     Blockchain Transaction
                   </p>
@@ -190,20 +235,42 @@ export default function Verify() {
                     rel="noopener noreferrer"
                     className="text-blue-600 text-sm font-mono break-all hover:underline"
                   >
-                    {verificationResult.polygon_tx}
+                    View on Polygonscan
                   </a>
 
                 </div>
 
               </div>
 
+              <div className="flex flex-wrap gap-4 mt-8">
+
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-slate-800"
+                >
+                  Copy Verification Link
+                </button>
+
+                <a
+                  href={`/certificate/${verificationResult.certification_id}`}
+                  className="px-6 py-3 border border-slate-300 text-sm font-semibold rounded-lg hover:bg-slate-50"
+                >
+                  View Certificate
+                </a>
+
+              </div>
+
             </div>
+
           )}
 
         </div>
+
       </main>
 
       <Footer />
+
     </div>
   );
 }
+```

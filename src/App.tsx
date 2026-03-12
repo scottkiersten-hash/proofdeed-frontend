@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
+import Home from "./pages/home/page";
+
 const API = "https://proofdeed.com/api";
 
 /* ---------------- Registry Page ---------------- */
@@ -36,7 +38,7 @@ function Registry() {
 
         <tbody>
 
-          {records.map((r:any)=>(
+          {records.map((r)=>(
             <tr key={r.certification_id}>
               <td>
                 <a href={`/verify/${r.certification_id}`}>
@@ -69,8 +71,7 @@ function Registry() {
 function Verify() {
 
   const { certId } = useParams();
-
-  const [data,setData] = useState<any>(null);
+  const [data,setData] = useState(null);
 
   useEffect(()=>{
 
@@ -85,11 +86,9 @@ function Verify() {
   if(!data.valid) {
 
     return (
-
       <div style={{textAlign:"center",marginTop:100}}>
         <h1>Invalid Certificate</h1>
       </div>
-
     );
 
   }
@@ -123,6 +122,7 @@ function Verify() {
         <a
          href={`https://polygonscan.com/tx/${data.polygon_transaction}`}
          target="_blank"
+         rel="noreferrer"
         >
          View Blockchain Proof
         </a>
@@ -166,11 +166,11 @@ export default function App() {
 
       <Routes>
 
-        <Route path="/" element={<Registry/>} />
+        <Route path="/" element={<Home />} />
 
-        <Route path="/registry" element={<Registry/>} />
+        <Route path="/registry" element={<Registry />} />
 
-        <Route path="/verify/:certId" element={<Verify/>} />
+        <Route path="/verify/:certId" element={<Verify />} />
 
       </Routes>
 

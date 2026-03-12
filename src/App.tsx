@@ -8,19 +8,20 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Success from "./pages/Success";
+import Registry from "./pages/registry/Registry";
 
 /* ===========================
 SCROLL TO TOP ON ROUTE CHANGE
 =========================== */
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+useEffect(() => {
+window.scrollTo(0, 0);
+}, [pathname]);
 
-  return null;
+return null;
 }
 
 /* ===========================
@@ -28,32 +29,36 @@ APP
 =========================== */
 
 function App() {
-  return (
-    <I18nextProvider i18n={i18n}>
-      <BrowserRouter basename={__BASE_PATH__}>
+return ( <I18nextProvider i18n={i18n}> <BrowserRouter basename={__BASE_PATH__}>
 
-        <ScrollToTop />
+```
+    <ScrollToTop />
 
-        <Routes>
+    <Routes>
 
-          {/* Existing Site Routes */}
-          <Route path="/*" element={<AppRoutes />} />
+      {/* Existing Site Routes */}
+      <Route path="/*" element={<AppRoutes />} />
 
-          {/* Auth Pages */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+      {/* Auth Pages */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-          {/* User Dashboard */}
-          <Route path="/dashboard" element={<Dashboard />} />
+      {/* User Dashboard */}
+      <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Stripe Success Page */}
-          <Route path="/success" element={<Success />} />
+      {/* Stripe Success Page */}
+      <Route path="/success" element={<Success />} />
 
-        </Routes>
+      {/* Public Registry */}
+      <Route path="/registry" element={<Registry />} />
 
-      </BrowserRouter>
-    </I18nextProvider>
-  );
+    </Routes>
+
+  </BrowserRouter>
+</I18nextProvider>
+```
+
+);
 }
 
 export default App;

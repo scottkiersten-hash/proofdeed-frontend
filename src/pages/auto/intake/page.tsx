@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../../../components/feature/Header';
-import Footer from '../../../components/feature/Footer';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import { apiPost, validateHoneypot, createFormData, API_ENDPOINTS } from '../../../lib/api';
 
 export default function AutoIntake() {

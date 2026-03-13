@@ -1,7 +1,8 @@
-import { HashRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
+import { AppRoutes } from "./router";
 import Home from "./pages/home/page";
 
 const API = "https://proofdeed.com/api";
@@ -10,7 +11,7 @@ const API = "https://proofdeed.com/api";
 
 function Registry() {
 
-  const [records,setRecords] = useState([]);
+  const [records,setRecords] = useState<any[]>([]);
 
   useEffect(()=>{
 
@@ -68,12 +69,13 @@ function Registry() {
 
 /* ---------------- Verification Page ---------------- */
 
-function Verify() {
+function Verify({certId}:{certId?:string}) {
 
-  const { certId } = useParams();
   const [data,setData] = useState<any>(null);
 
   useEffect(()=>{
+
+    if(!certId) return;
 
     fetch(`${API}/verify/${certId}`)
       .then(res=>res.json())
@@ -83,9 +85,9 @@ function Verify() {
 
   if(!data) return <div>Loading...</div>;
 
-  if(!data.valid) {
+  if(!data.valid){
 
-    return (
+    return(
       <div style={{textAlign:"center",marginTop:100}}>
         <h1>Invalid Certificate</h1>
       </div>
@@ -95,7 +97,7 @@ function Verify() {
 
   const verifyURL = `https://proofdeed.com/#/verify/${certId}`;
 
-  return (
+  return(
 
     <div style={{maxWidth:900,margin:"40px auto",fontFamily:"system-ui"}}>
 
@@ -121,21 +123,21 @@ function Verify() {
 
 }
 
-/* ---------------- Router ---------------- */
+/* ---------------- Main App ---------------- */
 
-export default function App() {
+export default function App(){
 
-  return (
+  return(
 
     <Router>
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        {/* FULL SITE ROUTES */}
+        <Route path="/*" element={<AppRoutes />} />
 
+        {/* PUBLIC REGISTRY */}
         <Route path="/registry" element={<Registry />} />
-
-        <Route path="/verify/:certId" element={<Verify />} />
 
       </Routes>
 

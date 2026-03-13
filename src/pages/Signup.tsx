@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import Header from '../components/feature/Header';
+import Header from "../components/Header";
 import Footer from '../components/feature/Footer';
 
 export default function Signup() {

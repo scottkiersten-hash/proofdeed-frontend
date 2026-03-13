@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { useState, FormEvent, useEffect } from 'react';
 import { apiPost, validateHoneypot, ERROR_MESSAGES } from '../../lib/api';
-import Header from '../../components/feature/Header';
-import Footer from '../../components/feature/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Contact() {
   const [searchParams] = useSearchParams();

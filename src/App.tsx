@@ -134,10 +134,6 @@ export default function App() {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/registry" element={<Registry />} />
-
-        <Route path="/verify/:certId" element={<Verify />} />
-
       </Routes>
 
     </Router>

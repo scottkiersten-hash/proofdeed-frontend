@@ -104,7 +104,6 @@ function Verify() {
       <p><b>Certification ID:</b> {data.certification_id}</p>
       <p><b>Hash:</b> {data.hash}</p>
       <p><b>Timestamp:</b> {new Date(data.created_at).toLocaleString()}</p>
-      <p><b>Blockchain:</b> {data.blockchain}</p>
 
       <div style={{marginTop:30}}>
         <QRCode value={verifyURL}/>
@@ -124,5 +123,24 @@ function Verify() {
 
 /* ---------------- Router ---------------- */
 
+export default function App() {
+
+  return (
+
+    <Router>
+
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="/registry" element={<Registry />} />
+
+        <Route path="/verify/:certId" element={<Verify />} />
+
+      </Routes>
+
+    </Router>
+
+  );
 
 }

@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiPost, validateHoneypot, createFormData, ERROR_MESSAGES } from "../../../lib/api";
-import Header from "../../../components/feature/Header";
+import Header from "../../../../components/Header";
 import Footer from "../../../components/feature/Footer";
 
 export default function DocumentIntake() {

@@ -1,8 +1,8 @@
 import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { apiPost } from '../../lib/api';
-import Header from '../../components/feature/Header';
-import Footer from '../../components/feature/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Inquiry() {
   const [formData, setFormData] = useState({

@@ -124,6 +124,5 @@ function Verify() {
 
 /* ---------------- Router ---------------- */
 
-npm run dev
 
 }

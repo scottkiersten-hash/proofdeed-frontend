@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
@@ -69,7 +69,9 @@ function Registry() {
 
 /* ---------------- Verification Page ---------------- */
 
-function Verify({ certId }: { certId?: string }) {
+function Verify() {
+
+  const { id: certId } = useParams();
 
   const [data, setData] = useState<any>(null);
 
@@ -84,7 +86,7 @@ function Verify({ certId }: { certId?: string }) {
 
   }, [certId]);
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <div style={{ textAlign: "center", marginTop: 100 }}>Loading...</div>;
 
   if (!data.valid) {
 
@@ -139,6 +141,12 @@ export default function App() {
 
         {/* PUBLIC REGISTRY */}
         <Route path="/registry" element={<Registry />} />
+
+        {/* CERTIFICATE VERIFICATION */}
+        <Route path="/verify/:id" element={<Verify />} />
+
+        {/* FALLBACK ROUTE */}
+        <Route path="*" element={<Home />} />
 
       </Routes>
 

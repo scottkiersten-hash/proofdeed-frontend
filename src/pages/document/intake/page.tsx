@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiPost, validateHoneypot, createFormData, ERROR_MESSAGES } from "../../../lib/api";
-import Header from "../../../../components/Header";
+import Header from "../../../components/Header";
 import Footer from "../../../components/feature/Footer";
 
 export default function DocumentIntake() {
@@ -156,9 +156,6 @@ export default function DocumentIntake() {
             onSubmit={handleSubmit}
             className="bg-white border border-slate-200 rounded-xl p-8"
           >
-            {/* Keep your form fields exactly as before */}
-            {/* No routing changes below this line */}
-
             <button
               type="submit"
               disabled={isSubmitting}

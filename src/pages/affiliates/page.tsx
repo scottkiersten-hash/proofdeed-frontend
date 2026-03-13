@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
-import Header from '../../components/feature/Header';
-import Footer from '../../components/feature/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const FORM_URL = 'https://readdy.ai/api/form/d6apr9fmvg9ih2c7aof0';
 

@@ -1,6 +1,6 @@
 import { useNavigate, type NavigateFunction, useRoutes } from "react-router-dom";
 import { useEffect } from "react";
-import routes from "./config";
+import routes from "./routes";
 
 let navigateResolver: (navigate: NavigateFunction) => void;
 

@@ -39,10 +39,12 @@ import Signup from "../pages/Signup";
 const routes: RouteObject[] = [
 
   /* CORE */
+  { index: true, element: <Home /> },
   { path: "/", element: <Home /> },
+
   { path: "/upload", element: <Upload /> },
- { path: "/verify", element: <Verify /> },
-{ path: "/verify/:certId", element: <Verify /> },
+  { path: "/verify", element: <Verify /> },
+  { path: "/verify/:certId", element: <Verify /> },
   { path: "/success", element: <Success /> },
 
   /* INFORMATION */
@@ -52,8 +54,6 @@ const routes: RouteObject[] = [
   { path: "/faq", element: <FAQ /> },
   { path: "/how-it-works", element: <HowItWorks /> },
   { path: "/blockchain", element: <Blockchain /> },
-
-  /* INDUSTRIES */
 
   /* DOCUMENT / INSTITUTIONAL */
   { path: "/document", element: <Document /> },

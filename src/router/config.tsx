@@ -39,8 +39,7 @@ import Signup from "../pages/Signup";
 const routes: RouteObject[] = [
 
   /* CORE */
-  { index: true, element: <Home /> },
-  { path: "/", element: <Home /> },
+{ path: "/", element: <Home /> },
 
   { path: "/upload", element: <Upload /> },
   { path: "/verify", element: <Verify /> },
